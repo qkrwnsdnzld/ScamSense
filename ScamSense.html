@@ -1,0 +1,1877 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#101f32"><title>ScamSense — 10 calls</title><meta name="description" content="An offline educational game about checking who is really calling."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23101f32'/%3E%3Ctext x='8' y='24' font-size='25' fill='%23a5ebd3'%3E%3F%3C/text%3E%3C/svg%3E"><style>
+:root{color-scheme:light;--navy:#101f32;--muted:#536377;--mint:#afeed8;--paper:#f4f7f8;--line:#dbe3e8;--red:#af3342;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--navy);font-size:16px}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 20% 20%,#dfeeea,transparent 55%),#e5eaf0;display:grid;place-items:center;padding:24px}button,input{font:inherit}button,summary,label{ -webkit-tap-highlight-color:transparent}button{min-height:48px;border:1px solid var(--line);border-radius:16px;padding:13px 17px;background:white;color:var(--navy);font-weight:600;cursor:pointer;text-align:left;line-height:1.4}button:hover:not(:disabled){border-color:#528b7b;background:#edf9f4}button:disabled{opacity:.5;cursor:wait}button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #237d69;outline-offset:3px}.primary{background:var(--mint);border-color:var(--mint);text-align:center}.dark{background:var(--navy);color:white}.end{color:var(--red);border-color:#e7cbd0;text-align:center}.phone{width:430px;max-width:100%;height:min(890px,calc(100dvh - 48px));min-height:520px;background:var(--paper);border:7px solid var(--navy);border-radius:48px;box-shadow:0 24px 70px #152b4326;overflow:hidden;display:flex;flex-direction:column;position:relative}.status{display:flex;justify-content:space-between;align-items:center;padding:14px 24px 8px;font-size:12px;font-weight:700;flex-shrink:0}.speaker{width:74px;height:8px;background:var(--navy);border-radius:10px}.brand{padding:12px 22px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:8px}.brand strong{font-size:18px;letter-spacing:-.6px}.brand span{font-size:12px;color:var(--muted)}main{overflow:auto;flex:1;padding:24px 22px 28px;overscroll-behavior:contain}h1{font-size:36px;letter-spacing:-1.4px;line-height:1.1;margin:18px 0}h2{font-size:25px;letter-spacing:-.6px;line-height:1.2;margin:12px 0}h3{font-size:16px;margin:0 0 8px}p{line-height:1.6;margin:12px 0}.muted{color:var(--muted)}.eyebrow{font-size:12px;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;color:var(--muted)}.stack{display:grid;gap:10px;margin:18px 0}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;margin:18px 0}.hero{background:var(--navy);color:white;border-radius:26px;padding:26px 24px;margin:0 0 22px}.hero p{color:#d3dfeb}.hero .eyebrow{color:var(--mint)}.dial{font-size:70px;font-weight:300;line-height:1.3;color:var(--mint);letter-spacing:-5px}.steps{display:flex;gap:6px;margin:16px 0}.steps span{height:4px;flex:1;background:#d7e1e6;border-radius:4px}.steps .done{background:#3b8c78}.avatar{width:88px;height:88px;background:#deebe8;border:1px solid #bbd8cf;border-radius:50%;display:grid;place-items:center;margin:30px auto 20px;font-size:27px;font-weight:600}.incoming{text-align:center;padding-top:18px}.incoming .avatar{animation:ring 1s ease-in-out 3}.incoming h1{font-size:30px}.incoming .primary{width:100%;margin-top:45px}.small{font-size:14px}.badge{display:inline-block;border-radius:20px;padding:6px 11px;background:#e4efeb;font-size:12px;font-weight:600}.identity{display:flex;gap:12px;align-items:center;margin-bottom:16px}.identity .avatar{width:46px;height:46px;margin:0;font-size:16px;flex-shrink:0}.identity p{margin:0;font-size:14px}.identity strong{display:block}.transcript{max-height:285px;min-height:120px;overflow:auto;padding:4px 3px 10px;scroll-behavior:smooth}.bubble{border-radius:16px 16px 16px 4px;background:white;border:1px solid var(--line);padding:12px 14px;margin:10px 25px 10px 0;line-height:1.55;font-size:15px;animation:arrive .2s ease}.bubble.player{background:#deefe9;margin:10px 0 10px 25px;border-radius:16px 16px 4px 16px}.bubble small{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:4px}.choice{font-size:14px;width:100%;font-weight:500}.call-controls{position:sticky;bottom:-28px;background:var(--paper);padding:10px 0 18px}.call-controls button{width:100%}.check{display:flex;align-items:center;gap:12px;background:white;border:1px solid var(--line);padding:14px;border-radius:16px;min-height:54px;cursor:pointer;line-height:1.45}.check:has(input:checked){border-color:#307c67;background:#e9f8f1}input[type=checkbox]{width:21px;height:21px;flex-shrink:0;accent-color:#23785f}.score{font-size:64px;letter-spacing:-3px;line-height:1.15;margin:12px 0}.score span{font-size:20px;letter-spacing:0;color:var(--muted)}.components{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center;font-size:12px}.components strong{display:block;font-size:22px;margin-bottom:4px}blockquote{margin:10px 0;padding-left:12px;border-left:3px solid #a2cabc;font-size:14px;line-height:1.5;color:var(--muted)}ul{padding-left:20px;line-height:1.55}li{margin:8px 0}summary{cursor:pointer;min-height:48px;padding:14px 0;font-weight:600}.correct{color:#236b56}.incorrect{color:var(--red)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}#notice{min-height:24px;color:var(--red);font-size:14px}.homebar{height:5px;width:100px;background:#101f32;border-radius:9px;margin:8px auto;flex-shrink:0}@keyframes ring{50%{box-shadow:0 0 0 14px #dcece580;transform:scale(1.04)}}@keyframes arrive{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}@media(max-width:500px){body{padding:0;background:var(--paper)}.phone{width:100%;height:100dvh;min-height:0;border:0;border-radius:0;box-shadow:none;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}.speaker{display:none}main{padding-left:20px;padding-right:20px}.status{padding-top:10px}.transcript{max-height:32dvh}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
+
+.language-row{display:flex;justify-content:flex-end;padding:6px 18px;border-bottom:1px solid var(--line);flex-shrink:0}#language{display:flex;gap:4px}#language button{min-width:70px;min-height:44px;border-radius:12px;padding:8px 12px;font-size:14px;text-align:center;background:transparent;border-color:transparent}#language button[aria-pressed=true]{background:var(--navy);color:white}html[lang=ko] h1{font-size:32px;line-height:1.3;letter-spacing:-1px;word-break:keep-all}html[lang=ko] h2{line-height:1.4;word-break:keep-all}html[lang=ko] .eyebrow{letter-spacing:.4px}html[lang=ko] p,html[lang=ko] button{word-break:keep-all;overflow-wrap:anywhere}
+</style></head><body><div class="phone"><div class="status" aria-hidden="true"><span>9:41</span><span class="speaker"></span><span>▥ ▰</span></div><header class="brand"><strong>ScamSense</strong><span id="progress">A little clarity.</span></header><div class="language-row"><div id="language" role="group" aria-label="Select language"><button id="korean" type="button" lang="ko" aria-pressed="false">한국어</button><button id="english" type="button" lang="en" aria-pressed="true">English</button></div></div><main id="app" tabindex="-1"></main><div class="homebar" aria-hidden="true"></div></div><div id="live" class="sr-only" role="status" aria-live="polite"></div><script>
+'use strict';
+// SCENARIO DATA: Edit dialogue here. IDs stay stable; parent unlocks a follow-up.
+// Each reply lists only clues that it actually reveals. Add stages using this schema.
+const SCENARIOS = [
+  {
+    "title": "Library Reservation",
+    "difficulty": "Easy",
+    "context": "Last week, you reserved a book through your university library.",
+    "name": "Alex Morgan",
+    "org": "Moonleaf University Library",
+    "opening": "Hi, this is Alex from Moonleaf University Library. I’m calling about the book you reserved. Is now a good time?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Yes, what’s happening with my reservation?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Your book has arrived. I’m just calling to let you know it’s ready to collect.",
+            "clues": []
+          },
+          "SCAM": {
+            "text": "Your book has arrived. There’s one reservation step to complete before collection.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Is there any fee?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No, there’s no fee to collect it. Just bring your student card when you visit.",
+            "clues": [
+              "L2"
+            ]
+          },
+          "SCAM": {
+            "text": "There’s a reservation deposit. We’re processing it through a gift card rather than the usual library payment system.",
+            "clues": [
+              "L2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can I check this on the library website?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes, open the library website the way you normally do. You’ll find it under your reservations.",
+            "clues": [
+              "L1"
+            ]
+          },
+          "SCAM": {
+            "text": "The website won’t show this step. You’ll need to complete it through this call.",
+            "clues": [
+              "L1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "When do I need to collect it?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "We can hold it until Friday. The collection deadline is also in your reservation record.",
+            "clues": [
+              "L1"
+            ]
+          },
+          "SCAM": {
+            "text": "I need the reservation step completed before this call ends, or the book goes to the next person.",
+            "clues": [
+              "L3"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Okay. What should I do next?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "Check your reservation record when you have a moment, then collect the book before the listed deadline.",
+            "clues": [
+              "L1"
+            ]
+          },
+          "SCAM": {
+            "text": "We need to settle the reservation deposit first. This one is handled through a gift card.",
+            "clues": [
+              "L2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can I deal with that at the library desk instead?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "Of course. The desk can confirm the reservation when you arrive, and there’s no collection fee.",
+            "clues": [
+              "L1",
+              "L2"
+            ]
+          },
+          "SCAM": {
+            "text": "The desk can’t handle this deposit. It has to be arranged through this call before the reservation is released.",
+            "clues": [
+              "L1",
+              "L3"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "L1": "Allows verification through an existing library channel.",
+        "L2": "No unexpected collection fee."
+      },
+      "SCAM": {
+        "L1": "Blocks independent verification or normal handling.",
+        "L2": "Requests an unusual gift-card payment.",
+        "L3": "Pressures the player to act during the call."
+      }
+    },
+    "explanation": {
+      "REAL": "The caller allowed you to check an existing reservation record and did not introduce an unexpected fee.",
+      "SCAM": "The unusual payment method, restricted verification, and pressure to act are the key warning signs."
+    },
+    "psychology": {
+      "REAL": "A friendly tone can build trust, but it does not prove identity.",
+      "SCAM": "Urgency, fear of losing the reservation, and borrowed institutional authority."
+    },
+    "safe": "End the call and check the library portal or contact the library through a number you already know."
+  },
+  {
+    "title": "Campus Account Review",
+    "difficulty": "Medium",
+    "context": "You use your university account for course materials. You have not independently checked whether an account review is taking place.",
+    "name": "Sam Lee",
+    "org": "Cloudberry University Student Services",
+    "opening": "Hello, this is Sam from Cloudberry University Student Services. I’m following up on an account review. Do you have a moment?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What is the review about?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "It’s a routine account-status check. Any action you need to take is listed in the student portal.",
+            "clues": [
+              "C1"
+            ]
+          },
+          "SCAM": {
+            "text": "It’s an account-status check. I need to go through it with you so your access isn’t interrupted.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Can I call Student Services using the university directory?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. Use the number in the university directory and ask about the account review.",
+            "clues": [
+              "C1"
+            ]
+          },
+          "SCAM": {
+            "text": "The main office won’t have this review on their system. Please keep it with me instead of calling them.",
+            "clues": [
+              "C1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Do you need my password or a verification code?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. Keep those private. You can sign in to the portal yourself after we finish.",
+            "clues": [
+              "C2"
+            ]
+          },
+          "SCAM": {
+            "text": "No, I’m not asking for those. But we still need to finish this review on this call.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can I check the notice and deal with this later?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. Read the portal notice first and contact the office if anything is unclear.",
+            "clues": [
+              "C1"
+            ]
+          },
+          "SCAM": {
+            "text": "If it isn’t completed today, access to your course materials may be suspended.",
+            "clues": [
+              "C2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Where can I read the details myself?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "In the student portal you normally use. You don’t need to follow a link from me.",
+            "clues": [
+              "C1"
+            ]
+          },
+          "SCAM": {
+            "text": "This review isn’t available in the portal. Other departments won’t be able to confirm it either.",
+            "clues": [
+              "C1"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "C1": "Supports independent verification through the existing portal or directory.",
+        "C2": "Explicitly keeps passwords and codes private."
+      },
+      "SCAM": {
+        "C1": "Discourages verification with another official channel.",
+        "C2": "Uses threatened loss of access to pressure the player."
+      }
+    },
+    "explanation": {
+      "REAL": "The caller supported independent checking and did not ask you to disclose account secrets.",
+      "SCAM": "The strongest clues are blocked verification and threatened account restrictions. Not requesting a password does not automatically make a call safe."
+    },
+    "psychology": {
+      "REAL": "Professional language may inspire trust; verification still matters.",
+      "SCAM": "Authority and fear of losing access."
+    },
+    "safe": "End the call, open your usual student portal yourself, and contact Student Services using the published directory."
+  },
+  {
+    "title": "Internship Follow-up",
+    "difficulty": "Hard",
+    "context": "You recently applied for an internship at Lanternbridge Studio. A caller knowing about an application does not by itself prove who they are.",
+    "name": "Jordan Park",
+    "org": "Lanternbridge Studio Recruitment",
+    "opening": "Hi, this is Jordan from Lanternbridge Studio. Thanks for applying for the internship. Is this a good time to talk about the next steps?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What happens next?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "We’d like to arrange an interview. You can review the written invitation before choosing a time.",
+            "clues": [
+              "J2"
+            ]
+          },
+          "SCAM": {
+            "text": "We’re getting things ready for the next step. There’s an equipment allocation process to complete first.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Is there any fee or deposit?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. Applicants don’t pay an interview or equipment deposit.",
+            "clues": [
+              "J2"
+            ]
+          },
+          "SCAM": {
+            "text": "There’s an equipment deposit before we issue the written offer. It reserves the equipment assigned to your place.",
+            "clues": [
+              "J2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can I check this in the application portal?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. Sign in through the application page you used before. The invitation is there too.",
+            "clues": [
+              "J1"
+            ]
+          },
+          "SCAM": {
+            "text": "This part isn’t shown in the application portal. Please handle it with me directly.",
+            "clues": [
+              "J1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can I discuss this with my campus careers adviser?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Of course. You’re welcome to review the process with them before deciding.",
+            "clues": [
+              "J1"
+            ]
+          },
+          "SCAM": {
+            "text": "We’re keeping this intake internal for now, so please don’t check the arrangement with your campus adviser.",
+            "clues": [
+              "J1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Could I read the written details before committing?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "Absolutely. Read the invitation and interview process first, then let us know.",
+            "clues": [
+              "J2"
+            ]
+          },
+          "SCAM": {
+            "text": "The written offer comes after the equipment deposit has been processed.",
+            "clues": [
+              "J2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can I wait until I have a written offer?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "Yes, review the written information first. There’s no deposit to arrange.",
+            "clues": [
+              "J2"
+            ]
+          },
+          "SCAM": {
+            "text": "We handle the deposit first, then release the written offer. That’s the order for this intake.",
+            "clues": [
+              "J2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "J1": "Allows independent verification through the existing application channel or adviser.",
+        "J2": "Provides a transparent written process without applicant deposits."
+      },
+      "SCAM": {
+        "J1": "Keeps the process away from independent verification.",
+        "J2": "Requires payment before a written offer."
+      }
+    },
+    "explanation": {
+      "REAL": "The process could be reviewed independently and did not require an applicant deposit.",
+      "SCAM": "A plausible application context and professional tone do not resolve the payment-before-offer problem or the attempts to prevent verification."
+    },
+    "psychology": {
+      "REAL": "Professionalism and familiarity can create trust, but are not sufficient evidence.",
+      "SCAM": "Hope of employment, reward expectations, and trust from familiar context."
+    },
+    "safe": "Do not pay based on the call. Check the existing application portal and consult your campus careers adviser."
+  },
+  {
+    "title": "Parcel Delivery",
+    "difficulty": "Easy",
+    "context": "You are expecting a parcel from a recent online order. You have not checked its delivery status today.",
+    "name": "Taylor Reed",
+    "org": "Pebblepost Delivery",
+    "opening": "Hi, Taylor from Pebblepost Delivery here. I’m calling about a delivery scheduled for you. Is this a good time?",
+    "safe": "Check the tracking page from your original order and contact delivery support through that existing service.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What is happening with the delivery?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "We have an updated delivery window. You can see it in the tracking record from your order.",
+            "clues": [
+              "P1"
+            ]
+          },
+          "SCAM": {
+            "text": "There is an updated delivery window. I can help confirm it during this call.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Do you need anything from my account?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. Keep your sign-in details and verification codes to yourself.",
+            "clues": [
+              "P2"
+            ]
+          },
+          "SCAM": {
+            "text": "A sign-in verification code will arrive. I need that code to confirm the delivery change.",
+            "clues": [
+              "P2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can I check the tracking page myself?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes, open the order you already placed and use its tracking page.",
+            "clues": [
+              "P1"
+            ]
+          },
+          "SCAM": {
+            "text": "That page will not show this update. Please handle the confirmation with me.",
+            "clues": [
+              "P1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can customer support confirm this later?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. Contact support through your order whenever it suits you.",
+            "clues": [
+              "P1"
+            ]
+          },
+          "SCAM": {
+            "text": "General support cannot confirm this update. Only this delivery call can complete it.",
+            "clues": [
+              "P1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Where is the updated time recorded?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "It is in the tracking record attached to your original order.",
+            "clues": [
+              "P1"
+            ]
+          },
+          "SCAM": {
+            "text": "It will only appear after you confirm the sign-in code with me.",
+            "clues": [
+              "P2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can I keep any verification code private?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "Absolutely. We can discuss delivery without your account codes.",
+            "clues": [
+              "P2"
+            ]
+          },
+          "SCAM": {
+            "text": "For this change, the code has to be read to me before I can finish.",
+            "clues": [
+              "P2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "P1": "Supports checking the original order’s tracking record.",
+        "P2": "Keeps account verification codes private."
+      },
+      "SCAM": {
+        "P1": "Discourages checking the original delivery record.",
+        "P2": "Requests a sign-in verification code for a delivery change."
+      }
+    },
+    "explanation": {
+      "REAL": "The caller let you use the original tracking record and did not need a sign-in code.",
+      "SCAM": "The delivery story was used to request an account code while steering you away from the original tracking record."
+    },
+    "psychology": {
+      "REAL": "An expected parcel makes a call feel relevant; the process still needs checking.",
+      "SCAM": "Familiar context and convenience can make an unrelated account-code request seem routine."
+    }
+  },
+  {
+    "title": "Scholarship Notification",
+    "difficulty": "Medium",
+    "context": "You applied for a student grant through your campus funding office last month.",
+    "name": "Casey Ellis",
+    "org": "Silverfern Student Fund",
+    "opening": "Hello, this is Casey from the Silverfern Student Fund. I’m following up on your grant application. May we talk?",
+    "safe": "Read the notice through your original application channel and check with your campus funding office before committing.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What is the result of my application?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "An award notice is available in your original application record.",
+            "clues": [
+              "S1"
+            ]
+          },
+          "SCAM": {
+            "text": "Your application has been selected. I can help arrange the release of the award.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Is there a processing charge?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. There is no fee to release this grant.",
+            "clues": [
+              "S2"
+            ]
+          },
+          "SCAM": {
+            "text": "There is an advance processing fee before we can release the grant.",
+            "clues": [
+              "S2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can the campus funding office verify this?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes, contact the office that handled your application.",
+            "clues": [
+              "S1"
+            ]
+          },
+          "SCAM": {
+            "text": "This allocation is separate. Please do not involve the campus office.",
+            "clues": [
+              "S1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can I read the conditions before accepting?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Of course. Read the notice and discuss it with the funding office first.",
+            "clues": [
+              "S1"
+            ]
+          },
+          "SCAM": {
+            "text": "The full conditions are issued after the processing fee is settled.",
+            "clues": [
+              "S2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Where can I see the award notice?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "Use the application channel you used last month; the campus office can confirm it too.",
+            "clues": [
+              "S1"
+            ]
+          },
+          "SCAM": {
+            "text": "It is not in that system. Keep the award arrangement between us for now.",
+            "clues": [
+              "S1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can the fee come out of the award instead?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "There is no fee to deduct. You do not pay to receive this grant.",
+            "clues": [
+              "S2"
+            ]
+          },
+          "SCAM": {
+            "text": "No. The fee must be paid first or we cannot release your award.",
+            "clues": [
+              "S2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "S1": "Allows the campus funding office to confirm the award.",
+        "S2": "Does not charge a fee to release the grant."
+      },
+      "SCAM": {
+        "S1": "Keeps the award away from the campus funding office.",
+        "S2": "Demands an advance fee to release the award."
+      }
+    },
+    "explanation": {
+      "REAL": "The award could be checked through the existing office and did not require a release fee.",
+      "SCAM": "An award promise does not justify a release fee or preventing the office from checking the application."
+    },
+    "psychology": {
+      "REAL": "Good news creates excitement; an independent record is more useful than enthusiasm.",
+      "SCAM": "Reward anticipation and fear of losing funding can weaken scrutiny of upfront fees."
+    }
+  },
+  {
+    "title": "Concert Ticket Update",
+    "difficulty": "Medium",
+    "context": "You bought a concert ticket through an event app. A caller says there is a booking update.",
+    "name": "Riley Chen",
+    "org": "Dayglow Events",
+    "opening": "Hi, Riley from Dayglow Events. I’m getting in touch about your concert booking. Have you got a moment?",
+    "safe": "Open the event app yourself and check the original booking. Keep ticket entry codes private.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What has changed with my booking?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "The entry time has changed. The updated time is in your booking in the event app.",
+            "clues": [
+              "T1"
+            ]
+          },
+          "SCAM": {
+            "text": "We are refreshing ticket allocations. I can help keep your seat in place.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Do you need the code on my ticket?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. Keep your entry code private and use it only when attending the event.",
+            "clues": [
+              "T2"
+            ]
+          },
+          "SCAM": {
+            "text": "Yes. I need the full entry code from the ticket to refresh your allocation.",
+            "clues": [
+              "T2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can I check the event app?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes, open your existing booking. You will see the same notice there.",
+            "clues": [
+              "T1"
+            ]
+          },
+          "SCAM": {
+            "text": "The app does not handle this update. We need to complete it directly.",
+            "clues": [
+              "T1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can I contact the box office myself?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Certainly. Use the contact details in your original booking.",
+            "clues": [
+              "T1"
+            ]
+          },
+          "SCAM": {
+            "text": "The box office cannot confirm this allocation change, so please stay with me.",
+            "clues": [
+              "T1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Where is the change explained in writing?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "In the event app, under the booking you already made.",
+            "clues": [
+              "T1"
+            ]
+          },
+          "SCAM": {
+            "text": "A written update follows once you share the ticket’s entry code.",
+            "clues": [
+              "T2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Is the booking reference enough instead?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "You do not need to read any code to me. The app already has the notice.",
+            "clues": [
+              "T2"
+            ]
+          },
+          "SCAM": {
+            "text": "No, it has to be the entry code that someone would use at the door.",
+            "clues": [
+              "T2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "T1": "Directs you to the original booking record.",
+        "T2": "Does not ask for the ticket entry code."
+      },
+      "SCAM": {
+        "T1": "Moves the update away from the official booking record.",
+        "T2": "Asks for the usable ticket entry code."
+      }
+    },
+    "explanation": {
+      "REAL": "The update was available in your existing booking and the caller did not need the entry code.",
+      "SCAM": "An entry code is not just a booking reference. Requesting it while blocking app verification is the key concern."
+    },
+    "psychology": {
+      "REAL": "Excitement about an event can make an update feel urgent even when there is time to check.",
+      "SCAM": "Fear of losing a seat and a helpful-sounding upgrade story can encourage oversharing."
+    }
+  },
+  {
+    "title": "Student Housing Viewing",
+    "difficulty": "Hard",
+    "context": "You asked to view a room listed on a student housing board. You have not visited it yet.",
+    "name": "Avery Brooks",
+    "org": "Harborpath Student Homes",
+    "opening": "Hello, Avery from Harborpath Student Homes. I’m calling about the room you asked to view. Is now convenient?",
+    "safe": "Check the original listing and arrange an independently confirmed viewing before making any payment commitment.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Can we arrange a viewing?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. The viewing options are in the original listing, and you can confirm them with the housing office.",
+            "clues": [
+              "H1"
+            ]
+          },
+          "SCAM": {
+            "text": "We are taking reservations first because there is a lot of interest in this room.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Is any payment needed before I see it?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. View the room and read the written terms before deciding whether to proceed.",
+            "clues": [
+              "H2"
+            ]
+          },
+          "SCAM": {
+            "text": "A holding payment is required before we arrange access to the room.",
+            "clues": [
+              "H2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can the student housing office verify the listing?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. Ask them about the listing through their usual contact channel.",
+            "clues": [
+              "H1"
+            ]
+          },
+          "SCAM": {
+            "text": "Please do not involve that office. They cannot verify our private allocation process.",
+            "clues": [
+              "H1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can I read the rental terms first?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Of course. Review the written terms before making a financial commitment.",
+            "clues": [
+              "H2"
+            ]
+          },
+          "SCAM": {
+            "text": "The terms are released after the holding payment is received.",
+            "clues": [
+              "H2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Can someone I trust view the room with me?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "Certainly. Confirm the appointment through the original listing and bring them along.",
+            "clues": [
+              "H1"
+            ]
+          },
+          "SCAM": {
+            "text": "No visits are possible until you have paid to hold the room.",
+            "clues": [
+              "H1",
+              "H2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can I decide after the viewing and paperwork?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "Yes. Take the time to review both before agreeing to anything.",
+            "clues": [
+              "H2"
+            ]
+          },
+          "SCAM": {
+            "text": "We need the holding payment first; the viewing and paperwork come afterwards.",
+            "clues": [
+              "H2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "H1": "Allows an independently confirmed viewing and listing check.",
+        "H2": "Provides terms before asking you to commit money."
+      },
+      "SCAM": {
+        "H1": "Blocks a viewing or independent listing check.",
+        "H2": "Requires money before a viewing or written terms."
+      }
+    },
+    "explanation": {
+      "REAL": "The caller offered a verifiable viewing and written terms before any payment commitment.",
+      "SCAM": "Pressure to reserve an unseen room does not replace a verifiable viewing or written terms."
+    },
+    "psychology": {
+      "REAL": "A helpful viewing coordinator still needs a connection to the original listing that you can check.",
+      "SCAM": "Housing scarcity and fear of missing out can make payment-before-viewing seem reasonable."
+    }
+  },
+  {
+    "title": "Marketplace Refund",
+    "difficulty": "Hard",
+    "context": "You opened a refund request for a purchase on a secondhand marketplace.",
+    "name": "Morgan Vale",
+    "org": "Maplemarket Support",
+    "opening": "Hi, this is Morgan from Maplemarket Support. I’m following up on your refund request. Can we talk for a moment?",
+    "safe": "Check the existing refund case inside the marketplace and contact support from there before taking action.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What is happening with my refund?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "The next update is posted in the refund case you opened in the marketplace.",
+            "clues": [
+              "M1"
+            ]
+          },
+          "SCAM": {
+            "text": "Your refund is ready for release. I can guide you through the last step.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Do I need to pay anything to get it?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. You do not need to make a new payment to receive this refund.",
+            "clues": [
+              "M2"
+            ]
+          },
+          "SCAM": {
+            "text": "A refundable verification payment is needed before the refund can be unlocked.",
+            "clues": [
+              "M2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can I continue through the app’s support case?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. Open that case yourself and continue there.",
+            "clues": [
+              "M1"
+            ]
+          },
+          "SCAM": {
+            "text": "This release cannot be handled in the app. Keep the steps with me instead.",
+            "clues": [
+              "M1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Will the instructions appear in my case history?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes, the case history contains the update and any action needed.",
+            "clues": [
+              "M1"
+            ]
+          },
+          "SCAM": {
+            "text": "These steps are handled separately and will not appear in the case history.",
+            "clues": [
+              "M1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Where can I read the next step myself?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "In the same refund case you already opened.",
+            "clues": [
+              "M1"
+            ]
+          },
+          "SCAM": {
+            "text": "There is no case notice for this step. I will explain it directly.",
+            "clues": [
+              "M1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can you refund me without a new payment?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "Yes. A refund is not conditional on you sending us more money.",
+            "clues": [
+              "M2"
+            ]
+          },
+          "SCAM": {
+            "text": "The verification payment has to happen first; then both amounts are released.",
+            "clues": [
+              "M2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "M1": "Keeps the refund traceable inside the existing marketplace case.",
+        "M2": "Does not require a new payment to receive the refund."
+      },
+      "SCAM": {
+        "M1": "Moves refund handling outside the marketplace case.",
+        "M2": "Requires a new payment to unlock the refund."
+      }
+    },
+    "explanation": {
+      "REAL": "The refund stayed within your existing case and did not depend on sending new money.",
+      "SCAM": "A new payment to unlock a refund and an unrecorded process are the key problems, even if the caller knows about your purchase."
+    },
+    "psychology": {
+      "REAL": "A familiar purchase can make a caller sound credible; the recorded process is stronger evidence.",
+      "SCAM": "The desire to recover money can make an additional payment feel like a small step toward relief."
+    }
+  },
+  {
+    "title": "Device Repair Follow-up",
+    "difficulty": "Hard",
+    "context": "You recently asked a repair service about a laptop problem. You have not scheduled remote support.",
+    "name": "Jamie Quinn",
+    "org": "Cedarline Device Care",
+    "opening": "Hello, Jamie from Cedarline Device Care. I’m following up on your laptop enquiry. Is this a good time?",
+    "safe": "Use the contact channel from your original repair enquiry. Do not grant device access based only on an incoming call.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What support are you offering?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "We can discuss repair options. The choices are listed in your existing service ticket.",
+            "clues": [
+              "D1"
+            ]
+          },
+          "SCAM": {
+            "text": "I can take care of the laptop issue remotely while we are on this call.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Would you need control of my device?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Not for this conversation. Read the support options and verify the appointment before allowing any access.",
+            "clues": [
+              "D2"
+            ]
+          },
+          "SCAM": {
+            "text": "Yes. I need you to grant remote control now so we can deal with the issue before anything else.",
+            "clues": [
+              "D2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can I call the repair desk I contacted before?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. Use that same contact channel to confirm this follow-up.",
+            "clues": [
+              "D1"
+            ]
+          },
+          "SCAM": {
+            "text": "The desk will not know about this remote session. Please do not call them during the process.",
+            "clues": [
+              "D1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can I review the service details first?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Of course. Review your ticket and choose whether you want a support appointment.",
+            "clues": [
+              "D2"
+            ]
+          },
+          "SCAM": {
+            "text": "The review can wait until I have control of the laptop.",
+            "clues": [
+              "D2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Where is this support offer recorded?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "In the service ticket from your original enquiry.",
+            "clues": [
+              "D1"
+            ]
+          },
+          "SCAM": {
+            "text": "It is outside the usual ticket system, so that desk cannot confirm it.",
+            "clues": [
+              "D1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can I verify you before allowing access?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "Yes. Take time to contact the service desk through the channel you already know.",
+            "clues": [
+              "D2"
+            ]
+          },
+          "SCAM": {
+            "text": "We need to establish device control first. Verification can follow once the session is running.",
+            "clues": [
+              "D2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "D1": "Supports verification through the original repair ticket.",
+        "D2": "Allows review before granting any device access."
+      },
+      "SCAM": {
+        "D1": "Discourages contacting the established repair service.",
+        "D2": "Presses for device control before independently checking the service."
+      }
+    },
+    "explanation": {
+      "REAL": "You could confirm the repair ticket and review support options before authorizing access.",
+      "SCAM": "Remote help can be legitimate, but this caller pushed for control before verification and discouraged contacting the existing service."
+    },
+    "psychology": {
+      "REAL": "Technical confidence can be reassuring, but you should still understand and verify the support process.",
+      "SCAM": "Technical authority and worry about a broken device can encourage premature access permissions."
+    }
+  },
+  {
+    "title": "Volunteer Fundraiser",
+    "difficulty": "Hard",
+    "context": "You previously volunteered at a local community event. A caller mentions a new fundraiser.",
+    "name": "Robin Shaw",
+    "org": "Brightmeadow Community Project",
+    "opening": "Hi, Robin from Brightmeadow Community Project. Thank you for helping at our event. May I tell you about our fundraiser?",
+    "safe": "Check with the community organizer you already know and review the fundraiser independently before choosing whether to donate.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "What is the fundraiser for?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "It supports our next community event. The purpose and budget are in a notice you can review through the project’s usual channel.",
+            "clues": [
+              "V2"
+            ]
+          },
+          "SCAM": {
+            "text": "It supports our next community event. We are contacting people who helped us before.",
+            "clues": []
+          }
+        }
+      },
+      {
+        "id": "B",
+        "text": "Do I need to commit during this call?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "No. Read the information first. It is completely fine to decide not to donate.",
+            "clues": [
+              "V2"
+            ]
+          },
+          "SCAM": {
+            "text": "We need your commitment now. After all the help we gave the community, it would be disappointing if you held back.",
+            "clues": [
+              "V2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "C",
+        "text": "Can I ask the organizer I volunteered with?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Absolutely. Check with the organizer you already know before making any decision.",
+            "clues": [
+              "V1"
+            ]
+          },
+          "SCAM": {
+            "text": "Please keep this from that organizer for now. We do not want them involved in these contributions.",
+            "clues": [
+              "V1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "D",
+        "text": "Can I read how donations are recorded?",
+        "parent": null,
+        "replies": {
+          "REAL": {
+            "text": "Yes. The written fundraiser details explain the records and acknowledgments before you decide.",
+            "clues": [
+              "V2"
+            ]
+          },
+          "SCAM": {
+            "text": "We can discuss records after you commit. What matters now is showing that you care.",
+            "clues": [
+              "V2"
+            ]
+          }
+        }
+      },
+      {
+        "id": "E",
+        "text": "Where can I confirm the project myself?",
+        "parent": "A",
+        "replies": {
+          "REAL": {
+            "text": "Use the community project channel you used when volunteering, or ask your event organizer.",
+            "clues": [
+              "V1"
+            ]
+          },
+          "SCAM": {
+            "text": "This collection is separate from those channels. Please keep it within this conversation.",
+            "clues": [
+              "V1"
+            ]
+          }
+        }
+      },
+      {
+        "id": "F",
+        "text": "Can I take time to think and say no?",
+        "parent": "B",
+        "replies": {
+          "REAL": {
+            "text": "Of course. Your past help is appreciated whether or not you donate.",
+            "clues": [
+              "V2"
+            ]
+          },
+          "SCAM": {
+            "text": "If you really support the project, you should commit before we end the call.",
+            "clues": [
+              "V2"
+            ]
+          }
+        }
+      }
+    ],
+    "clues": {
+      "REAL": {
+        "V1": "Welcomes checking with the known community organizer.",
+        "V2": "Offers a documented voluntary donation process without pressure."
+      },
+      "SCAM": {
+        "V1": "Asks you to keep the fundraiser from the known organizer.",
+        "V2": "Uses guilt and immediate-payment pressure instead of documented choice."
+      }
+    },
+    "explanation": {
+      "REAL": "The caller welcomed independent checking and allowed a voluntary decision after reviewing written information.",
+      "SCAM": "A good cause does not explain secrecy from the organizer or pressure to pledge before reviewing the fundraiser."
+    },
+    "psychology": {
+      "REAL": "Gratitude for past volunteering can build rapport; documentation and freedom to decline still matter.",
+      "SCAM": "Reciprocity, guilt, and loyalty to a familiar cause can crowd out independent checking."
+    }
+  }
+];
+const DISTRACTORS={tone:'The caller sounded polite.',name:'The caller knew the organization’s name.'};
+const EFFICIENCY_NOTE='Efficiency is a game mechanic. In real life, careful verification matters more than speed.';
+const REAL_NOTE='REAL describes this fictional scenario. Similar real-world calls should still be independently verified.';
+const app=document.getElementById('app'),live=document.getElementById('live');
+let runs=[],current=0,phase='welcome',timer=null,pending=null,epoch=0;
+
+// LOCALIZATION: Add English → Korean entries here when authoring new dialogue.
+const KOREAN = {
+  "Library Reservation": "도서관 예약 도서",
+  "Easy": "쉬움",
+  "Last week, you reserved a book through your university library.": "지난주, 대학교 도서관에서 책을 예약했습니다.",
+  "Alex Morgan": "알렉스 모건",
+  "Moonleaf University Library": "문리프 대학교 도서관",
+  "Hi, this is Alex from Moonleaf University Library. I’m calling about the book you reserved. Is now a good time?": "안녕하세요, 문리프 대학교 도서관의 알렉스입니다. 예약하신 책 때문에 전화드렸어요. 지금 통화 괜찮으세요?",
+  "End the call and check the library portal or contact the library through a number you already know.": "통화를 종료한 뒤 도서관 포털을 확인하거나, 이미 알고 있는 번호로 도서관에 직접 연락하세요.",
+  "Yes, what’s happening with my reservation?": "네, 예약한 책은 어떻게 됐나요?",
+  "Your book has arrived. I’m just calling to let you know it’s ready to collect.": "예약하신 책이 도착했습니다. 이제 찾아가실 수 있다고 알려드리려고 전화했어요.",
+  "Your book has arrived. There’s one reservation step to complete before collection.": "예약하신 책이 도착했습니다. 찾아가시기 전에 예약 절차 한 가지만 마무리하시면 돼요.",
+  "Is there any fee?": "비용이 있나요?",
+  "No, there’s no fee to collect it. Just bring your student card when you visit.": "아니요, 책을 찾아갈 때 드는 비용은 없어요. 방문하실 때 학생증만 가져오세요.",
+  "There’s a reservation deposit. We’re processing it through a gift card rather than the usual library payment system.": "예약 보증금이 있어요. 이번에는 도서관의 일반 결제 시스템 대신 기프트카드로 처리하고 있습니다.",
+  "Can I check this on the library website?": "도서관 웹사이트에서 확인할 수 있나요?",
+  "Yes, open the library website the way you normally do. You’ll find it under your reservations.": "네, 평소 이용하시던 도서관 웹사이트에 접속하세요. 예약 내역에서 확인하실 수 있어요.",
+  "The website won’t show this step. You’ll need to complete it through this call.": "이 절차는 웹사이트에 나오지 않아요. 이 통화에서 완료하셔야 합니다.",
+  "When do I need to collect it?": "언제까지 찾으러 가야 하나요?",
+  "We can hold it until Friday. The collection deadline is also in your reservation record.": "금요일까지 보관해 드릴 수 있어요. 수령 기한은 예약 내역에도 나와 있습니다.",
+  "I need the reservation step completed before this call ends, or the book goes to the next person.": "이 통화가 끝나기 전에 예약 절차를 완료하셔야 해요. 그렇지 않으면 다음 예약자에게 책이 넘어갑니다.",
+  "Okay. What should I do next?": "알겠습니다. 다음에 무엇을 하면 되나요?",
+  "Check your reservation record when you have a moment, then collect the book before the listed deadline.": "시간 되실 때 예약 내역을 확인하시고, 안내된 기한 전에 책을 찾아가시면 됩니다.",
+  "We need to settle the reservation deposit first. This one is handled through a gift card.": "먼저 예약 보증금을 처리해야 합니다. 이번 보증금은 기프트카드로 받고 있어요.",
+  "Can I deal with that at the library desk instead?": "도서관 안내 데스크에서 처리해도 되나요?",
+  "Of course. The desk can confirm the reservation when you arrive, and there’s no collection fee.": "물론이죠. 방문하시면 안내 데스크에서 예약을 확인해 드릴 거예요. 수령 비용은 없습니다.",
+  "The desk can’t handle this deposit. It has to be arranged through this call before the reservation is released.": "안내 데스크에서는 이 보증금을 처리할 수 없어요. 예약이 취소되기 전에 이 통화에서 처리하셔야 합니다.",
+  "Allows verification through an existing library channel.": "기존 도서관 경로를 통해 직접 확인할 수 있게 합니다.",
+  "No unexpected collection fee.": "예상하지 못한 도서 수령 비용을 요구하지 않습니다.",
+  "The caller allowed you to check an existing reservation record and did not introduce an unexpected fee.": "기존 예약 내역에서 직접 확인할 수 있게 했고, 예상하지 못한 비용을 요구하지 않았습니다.",
+  "A friendly tone can build trust, but it does not prove identity.": "친절한 말투는 신뢰를 줄 수 있지만, 신원을 증명하지는 못합니다.",
+  "Blocks independent verification or normal handling.": "별도의 확인이나 정상적인 처리를 막습니다.",
+  "Requests an unusual gift-card payment.": "기프트카드라는 이례적인 결제 수단을 요구합니다.",
+  "Pressures the player to act during the call.": "통화 중에 바로 처리하도록 압박합니다.",
+  "The unusual payment method, restricted verification, and pressure to act are the key warning signs.": "이례적인 결제 수단, 별도 확인 제한, 즉시 행동하라는 압박이 핵심 경고 신호입니다.",
+  "Urgency, fear of losing the reservation, and borrowed institutional authority.": "긴박감, 예약을 놓칠 수 있다는 두려움, 교육기관의 권위에 기대는 수법입니다.",
+  "Campus Account Review": "대학 계정 점검",
+  "Medium": "보통",
+  "You use your university account for course materials. You have not independently checked whether an account review is taking place.": "수업 자료를 보기 위해 대학교 계정을 사용하고 있습니다. 실제로 계정 점검이 진행 중인지는 아직 직접 확인하지 않았습니다.",
+  "Sam Lee": "샘 리",
+  "Cloudberry University Student Services": "클라우드베리 대학교 학생지원처",
+  "Hello, this is Sam from Cloudberry University Student Services. I’m following up on an account review. Do you have a moment?": "안녕하세요, 클라우드베리 대학교 학생지원처의 샘입니다. 계정 점검 건으로 연락드렸습니다. 잠시 통화 가능하신가요?",
+  "End the call, open your usual student portal yourself, and contact Student Services using the published directory.": "통화를 종료하고 평소 사용하던 학생 포털에 직접 접속한 뒤, 공식 연락처 안내에 나온 번호로 학생지원처에 문의하세요.",
+  "What is the review about?": "어떤 점검인가요?",
+  "It’s a routine account-status check. Any action you need to take is listed in the student portal.": "정기적인 계정 상태 확인입니다. 필요한 조치는 모두 학생 포털에 안내되어 있습니다.",
+  "It’s an account-status check. I need to go through it with you so your access isn’t interrupted.": "계정 상태 확인입니다. 이용에 차질이 없도록 저와 함께 절차를 진행하셔야 합니다.",
+  "Can I call Student Services using the university directory?": "대학교 연락처 안내에 나온 번호로 학생지원처에 전화해도 될까요?",
+  "Yes. Use the number in the university directory and ask about the account review.": "네. 대학교 연락처 안내에 나온 번호로 전화하셔서 계정 점검에 대해 문의하세요.",
+  "The main office won’t have this review on their system. Please keep it with me instead of calling them.": "일반 사무실 시스템에는 이번 점검이 나오지 않습니다. 그쪽에 전화하지 마시고 저와 계속 진행해 주세요.",
+  "Do you need my password or a verification code?": "제 비밀번호나 인증 코드가 필요한가요?",
+  "No. Keep those private. You can sign in to the portal yourself after we finish.": "아니요. 그런 정보는 다른 사람에게 알려주지 마세요. 통화를 마친 뒤 포털에 직접 로그인하시면 됩니다.",
+  "No, I’m not asking for those. But we still need to finish this review on this call.": "아니요, 그런 정보는 요청하지 않습니다. 다만 이번 점검은 이 통화에서 끝내셔야 합니다.",
+  "Can I check the notice and deal with this later?": "안내문을 확인하고 나중에 처리해도 되나요?",
+  "Yes. Read the portal notice first and contact the office if anything is unclear.": "네. 먼저 포털의 안내문을 읽어 보시고, 이해되지 않는 내용이 있으면 사무실로 문의하세요.",
+  "If it isn’t completed today, access to your course materials may be suspended.": "오늘 안에 완료하지 않으시면 수업 자료에 대한 접근이 중단될 수 있습니다.",
+  "Where can I read the details myself?": "세부 내용을 어디에서 직접 읽을 수 있나요?",
+  "In the student portal you normally use. You don’t need to follow a link from me.": "평소 이용하시는 학생 포털에서 확인하실 수 있습니다. 제가 보내는 링크를 이용하실 필요는 없습니다.",
+  "This review isn’t available in the portal. Other departments won’t be able to confirm it either.": "이번 점검은 포털에서 확인할 수 없습니다. 다른 부서에서도 확인해 드릴 수 없습니다.",
+  "Supports independent verification through the existing portal or directory.": "기존 포털이나 공식 연락처를 통한 별도 확인을 지원합니다.",
+  "Explicitly keeps passwords and codes private.": "비밀번호와 인증 코드를 비공개로 유지하라고 명확히 안내합니다.",
+  "The caller supported independent checking and did not ask you to disclose account secrets.": "직접 별도로 확인하도록 도왔고, 계정의 비밀 정보를 알려 달라고 요청하지 않았습니다.",
+  "Professional language may inspire trust; verification still matters.": "전문적인 말투는 신뢰감을 줄 수 있지만, 여전히 직접 확인해야 합니다.",
+  "Discourages verification with another official channel.": "다른 공식 경로를 통한 확인을 막습니다.",
+  "Uses threatened loss of access to pressure the player.": "이용 권한을 잃을 수 있다는 위협으로 압박합니다.",
+  "The strongest clues are blocked verification and threatened account restrictions. Not requesting a password does not automatically make a call safe.": "가장 강한 단서는 별도 확인을 막고 계정 이용 제한으로 위협한 점입니다. 비밀번호를 요구하지 않는다고 해서 자동으로 안전한 전화가 되는 것은 아닙니다.",
+  "Authority and fear of losing access.": "기관의 권위와 이용 권한을 잃는다는 두려움을 이용합니다.",
+  "Internship Follow-up": "인턴 지원 후속 연락",
+  "Hard": "어려움",
+  "You recently applied for an internship at Lanternbridge Studio. A caller knowing about an application does not by itself prove who they are.": "최근 랜턴브리지 스튜디오의 인턴십에 지원했습니다. 상대가 지원 사실을 안다고 해서 신원이 증명되는 것은 아닙니다.",
+  "Jordan Park": "조던 박",
+  "Lanternbridge Studio Recruitment": "랜턴브리지 스튜디오 채용팀",
+  "Hi, this is Jordan from Lanternbridge Studio. Thanks for applying for the internship. Is this a good time to talk about the next steps?": "안녕하세요, 랜턴브리지 스튜디오의 조던입니다. 인턴십에 지원해 주셔서 감사합니다. 다음 절차에 대해 잠시 통화 괜찮으세요?",
+  "Do not pay based on the call. Check the existing application portal and consult your campus careers adviser.": "전화 내용만 믿고 돈을 보내지 마세요. 기존 지원 포털을 확인하고 학교 취업 상담 담당자와 상의하세요.",
+  "What happens next?": "다음 절차는 무엇인가요?",
+  "We’d like to arrange an interview. You can review the written invitation before choosing a time.": "면접 일정을 잡으려고 합니다. 시간을 선택하기 전에 서면 면접 안내를 검토하실 수 있어요.",
+  "We’re getting things ready for the next step. There’s an equipment allocation process to complete first.": "다음 단계를 준비하고 있습니다. 먼저 장비 배정 절차를 완료하셔야 합니다.",
+  "Is there any fee or deposit?": "비용이나 보증금이 있나요?",
+  "No. Applicants don’t pay an interview or equipment deposit.": "아니요. 지원자는 면접비나 장비 보증금을 내지 않습니다.",
+  "There’s an equipment deposit before we issue the written offer. It reserves the equipment assigned to your place.": "서면 채용 제안서를 발급하기 전에 장비 보증금이 필요합니다. 지원자님께 배정된 장비를 확보하는 비용입니다.",
+  "Can I check this in the application portal?": "지원 포털에서 확인할 수 있나요?",
+  "Yes. Sign in through the application page you used before. The invitation is there too.": "네. 이전에 이용하신 지원 페이지를 통해 로그인하세요. 면접 안내가 거기에도 있습니다.",
+  "This part isn’t shown in the application portal. Please handle it with me directly.": "이 부분은 지원 포털에 표시되지 않습니다. 저와 직접 처리해 주세요.",
+  "Can I discuss this with my campus careers adviser?": "학교 취업 상담 담당자와 상의해도 될까요?",
+  "Of course. You’re welcome to review the process with them before deciding.": "물론입니다. 결정하시기 전에 담당자와 절차를 검토하셔도 됩니다.",
+  "We’re keeping this intake internal for now, so please don’t check the arrangement with your campus adviser.": "이번 모집은 아직 내부적으로만 진행 중이라, 학교 취업 상담 담당자에게 이 절차를 확인하지 말아 주세요.",
+  "Could I read the written details before committing?": "결정하기 전에 서면으로 된 세부 내용을 읽어볼 수 있을까요?",
+  "Absolutely. Read the invitation and interview process first, then let us know.": "물론이죠. 먼저 면접 안내와 진행 절차를 읽어보시고 알려 주세요.",
+  "The written offer comes after the equipment deposit has been processed.": "장비 보증금 처리가 끝나면 서면 채용 제안서가 나갑니다.",
+  "Can I wait until I have a written offer?": "서면 채용 제안을 받을 때까지 기다려도 되나요?",
+  "Yes, review the written information first. There’s no deposit to arrange.": "네, 먼저 서면 안내를 검토하세요. 납부하실 보증금은 없습니다.",
+  "We handle the deposit first, then release the written offer. That’s the order for this intake.": "먼저 보증금을 처리하고, 그다음 서면 채용 제안서를 발급합니다. 이번 모집은 그 순서로 진행됩니다.",
+  "Allows independent verification through the existing application channel or adviser.": "기존 지원 경로나 상담 담당자를 통해 별도로 확인할 수 있게 합니다.",
+  "Provides a transparent written process without applicant deposits.": "지원자 보증금 없이 투명한 서면 절차를 제공합니다.",
+  "The process could be reviewed independently and did not require an applicant deposit.": "절차를 별도로 검토할 수 있었고 지원자 보증금을 요구하지 않았습니다.",
+  "Professionalism and familiarity can create trust, but are not sufficient evidence.": "전문성과 익숙한 상황은 신뢰감을 줄 수 있지만, 충분한 증거는 아닙니다.",
+  "Keeps the process away from independent verification.": "절차를 별도로 확인하지 못하게 합니다.",
+  "Requires payment before a written offer.": "서면 채용 제안서를 받기 전에 돈을 요구합니다.",
+  "A plausible application context and professional tone do not resolve the payment-before-offer problem or the attempts to prevent verification.": "실제 지원 사실과 전문적인 말투만으로는 채용 제안 전 결제 요구나 별도 확인을 막는 문제를 해소할 수 없습니다.",
+  "Hope of employment, reward expectations, and trust from familiar context.": "취업에 대한 희망, 보상에 대한 기대, 익숙한 상황에서 생기는 신뢰를 이용합니다.",
+  "A little clarity.": "판단을 더 선명하게.",
+  "Your call history": "통화 기록",
+  "Before the call": "통화 전 상황",
+  "Ask up to six questions. You can end the call and decide at any time.": "최대 6개의 질문을 할 수 있습니다. 언제든 통화를 종료하고 판단할 수 있어요.",
+  "This is a text-based call game; there is no audio or telephone connection.": "이 게임은 통화를 글로 표현합니다. 실제 음성이나 전화 연결은 없습니다.",
+  "Continue": "계속",
+  "Incoming call": "전화 수신 중",
+  "Text-based call": "텍스트 통화",
+  "Answer call": "전화 받기",
+  "Connected · Text-based call": "연결됨 · 텍스트 통화",
+  "Call transcript": "통화 기록",
+  "Call ended": "통화 종료",
+  "Who was on the line?": "누가 전화했을까요?",
+  "Decide whether the caller was genuine or impersonating the organization.": "실제 담당자인지, 기관을 사칭한 사기꾼인지 판단하세요.",
+  "REAL": "진짜",
+  "SCAM": "사기",
+  "Review call transcript": "통화 기록 확인",
+  "Completed calls": "완료한 통화",
+  "Review calls": "통화 다시 보기",
+  "Back to results": "최종 결과로",
+  "Trust your questions.": "질문에서 시작되는 판단.",
+  "Before you start": "시작하기 전에",
+  "All people and organizations in this game are fictional. No real calls, payments, or personal information are involved.": "이 게임의 모든 인물과 기관은 가상입니다. 실제 통화, 결제, 개인정보는 사용되지 않습니다.",
+  "Fictional educational scenarios, not a ranking of common scams in any country. Calls are represented through text.": "가상의 교육용 시나리오이며, 특정 국가에서 흔한 사기 유형의 순위를 나타내지 않습니다. 통화는 글로 표현됩니다.",
+  "Start game": "게임 시작",
+  "You": "나",
+  "Caller is replying…": "상대방이 답변하고 있습니다…",
+  "No questions remaining. Ready to decide?": "남은 질문이 없습니다. 판단할 준비가 되셨나요?",
+  "End call & decide": "통화 종료 후 판단",
+  "Which details influenced your decision?": "어떤 단서가 판단에 영향을 주었나요?",
+  "Choose up to two details you actually heard.": "실제로 들은 내용 중 최대 2개를 선택하세요.",
+  "You ended the call before collecting specific evidence.": "구체적인 단서를 수집하기 전에 통화를 종료했습니다.",
+  "Choose no more than two details. Uncheck one to choose another.": "최대 2개까지 선택할 수 있습니다. 다른 단서를 고르려면 먼저 하나를 해제하세요.",
+  "Submit decision": "판단 제출",
+  "You may submit without selecting any evidence.": "단서를 선택하지 않고 제출해도 됩니다.",
+  "Decision": "판단",
+  "Evidence": "단서",
+  "Efficiency": "효율성",
+  "Important clues you heard": "통화에서 들은 주요 단서",
+  "No specific clues were revealed.": "구체적인 단서가 드러나지 않았습니다.",
+  "Psychological elements": "심리적 요소",
+  "What you noticed": "선택한 단서",
+  "You did not select any evidence.": "단서를 선택하지 않았습니다.",
+  "Heard, but not selected": "들었지만 선택하지 않은 단서",
+  "No unselected clues were heard.": "들은 단서 중 선택하지 않은 것은 없습니다.",
+  "Not revealed before your decision": "판단 전에 드러나지 않은 단서",
+  "You revealed all of the key clues.": "주요 단서를 모두 확인했습니다.",
+  "A safe real-world response": "현실에서의 안전한 대응",
+  "Full conversation transcript": "전체 통화 기록",
+  "Back to review": "통화 목록으로",
+  "View final results": "최종 결과 보기",
+  "Next call": "다음 통화",
+  "A clearer perspective.": "한층 선명해진 판단.",
+  "Play again": "다시 플레이",
+  "The caller sounded polite.": "상대방의 말투가 정중했습니다.",
+  "The caller knew the organization’s name.": "상대방이 기관 이름을 알고 있었습니다.",
+  "Efficiency is a game mechanic. In real life, careful verification matters more than speed.": "효율성 점수는 게임을 위한 규칙입니다. 현실에서는 속도보다 꼼꼼한 확인이 더 중요합니다.",
+  "REAL describes this fictional scenario. Similar real-world calls should still be independently verified.": "‘진짜’는 이 가상 시나리오의 설정을 뜻합니다. 현실에서 비슷한 전화를 받더라도 별도로 직접 확인해야 합니다.",
+  "Look beyond tone and job titles. Examine what the caller asks you to do, whether the process makes sense, and whether you can verify it independently.": "말투와 직함만 보고 판단하지 마세요. 무엇을 요구하는지, 절차가 타당한지, 별도로 직접 확인할 수 있는지 살펴보세요.",
+  "Parcel Delivery": "택배 배송 안내",
+  "You are expecting a parcel from a recent online order. You have not checked its delivery status today.": "최근 온라인 주문의 택배를 기다리고 있습니다. 오늘 배송 상태는 아직 확인하지 않았습니다.",
+  "Taylor Reed": "테일러 리드",
+  "Pebblepost Delivery": "페블포스트 배송팀",
+  "Hi, Taylor from Pebblepost Delivery here. I’m calling about a delivery scheduled for you. Is this a good time?": "안녕하세요, 페블포스트 배송팀의 테일러입니다. 배송 예정인 택배 때문에 연락드렸어요. 지금 통화 괜찮으세요?",
+  "Check the tracking page from your original order and contact delivery support through that existing service.": "원래 주문 내역에서 배송 조회를 하고, 기존 서비스를 통해 배송 고객지원에 문의하세요.",
+  "The caller let you use the original tracking record and did not need a sign-in code.": "원래 배송 기록을 확인할 수 있게 했으며 로그인 코드를 요구하지 않았습니다.",
+  "The delivery story was used to request an account code while steering you away from the original tracking record.": "배송 안내를 구실로 계정 코드를 요구하며 원래 배송 기록을 확인하지 못하게 했습니다.",
+  "An expected parcel makes a call feel relevant; the process still needs checking.": "기다리던 택배가 있으면 관련 있는 전화처럼 느껴집니다. 그래도 절차는 확인해야 합니다.",
+  "Familiar context and convenience can make an unrelated account-code request seem routine.": "익숙한 상황과 편의성을 내세우면 배송과 무관한 계정 코드 요구도 일상적인 절차처럼 보일 수 있습니다.",
+  "Supports checking the original order’s tracking record.": "원래 주문의 배송 기록에서 확인할 수 있게 합니다.",
+  "Keeps account verification codes private.": "계정 인증 코드를 비공개로 유지하게 합니다.",
+  "Discourages checking the original delivery record.": "원래 배송 기록을 확인하지 못하게 합니다.",
+  "Requests a sign-in verification code for a delivery change.": "배송 변경을 이유로 로그인 인증 코드를 요구합니다.",
+  "What is happening with the delivery?": "배송에 무슨 일이 있나요?",
+  "We have an updated delivery window. You can see it in the tracking record from your order.": "배송 예정 시간이 변경됐어요. 주문 내역의 배송 기록에서 보실 수 있습니다.",
+  "There is an updated delivery window. I can help confirm it during this call.": "배송 예정 시간이 변경됐어요. 이 통화에서 확정해 드릴 수 있습니다.",
+  "Do you need anything from my account?": "제 계정에서 필요한 정보가 있나요?",
+  "No. Keep your sign-in details and verification codes to yourself.": "아니요. 로그인 정보나 인증 코드는 다른 사람에게 알려주지 마세요.",
+  "A sign-in verification code will arrive. I need that code to confirm the delivery change.": "로그인 인증 코드가 도착할 거예요. 배송 변경을 확정하려면 그 코드가 필요합니다.",
+  "Can I check the tracking page myself?": "제가 배송 조회 페이지를 확인해도 될까요?",
+  "Yes, open the order you already placed and use its tracking page.": "네, 기존 주문 내역을 열고 배송 조회 페이지를 이용하세요.",
+  "That page will not show this update. Please handle the confirmation with me.": "그 페이지에는 이번 변경이 안 나와요. 저와 함께 확인 절차를 진행해 주세요.",
+  "Can customer support confirm this later?": "나중에 고객지원에서 확인할 수 있나요?",
+  "Yes. Contact support through your order whenever it suits you.": "네. 편하실 때 주문 내역을 통해 고객지원에 문의하세요.",
+  "General support cannot confirm this update. Only this delivery call can complete it.": "일반 고객지원에서는 이번 변경을 확인할 수 없어요. 이 배송 안내 통화에서만 완료할 수 있습니다.",
+  "Where is the updated time recorded?": "변경된 시간은 어디에 기록되어 있나요?",
+  "It is in the tracking record attached to your original order.": "원래 주문에 연결된 배송 기록에 있습니다.",
+  "It will only appear after you confirm the sign-in code with me.": "저에게 로그인 코드를 확인해 주신 뒤에만 표시됩니다.",
+  "Can I keep any verification code private?": "인증 코드는 알려주지 않아도 되죠?",
+  "Absolutely. We can discuss delivery without your account codes.": "물론이죠. 계정 코드 없이도 배송 안내를 받으실 수 있습니다.",
+  "For this change, the code has to be read to me before I can finish.": "이번 변경은 코드를 저에게 읽어주셔야 마칠 수 있어요.",
+  "Scholarship Notification": "장학금 선정 안내",
+  "You applied for a student grant through your campus funding office last month.": "지난달 학교 장학 담당 부서를 통해 학생 지원금에 신청했습니다.",
+  "Casey Ellis": "케이시 엘리스",
+  "Silverfern Student Fund": "실버펀 학생지원재단",
+  "Hello, this is Casey from the Silverfern Student Fund. I’m following up on your grant application. May we talk?": "안녕하세요, 실버펀 학생지원재단의 케이시입니다. 지원금 신청 건으로 연락드렸어요. 잠시 이야기 나눌 수 있을까요?",
+  "Read the notice through your original application channel and check with your campus funding office before committing.": "원래 신청 경로에서 안내문을 읽고, 결정하기 전에 학교 장학 담당 부서에 확인하세요.",
+  "The award could be checked through the existing office and did not require a release fee.": "기존 담당 부서에서 선정 내용을 확인할 수 있었고 지급 수수료를 요구하지 않았습니다.",
+  "An award promise does not justify a release fee or preventing the office from checking the application.": "지원금에 선정됐다는 약속만으로 지급 수수료나 담당 부서의 확인을 막는 행위가 정당화되지는 않습니다.",
+  "Good news creates excitement; an independent record is more useful than enthusiasm.": "좋은 소식은 설렘을 줍니다. 하지만 기대감보다 독립적으로 확인할 수 있는 기록이 더 중요합니다.",
+  "Reward anticipation and fear of losing funding can weaken scrutiny of upfront fees.": "보상에 대한 기대와 지원금을 놓칠 수 있다는 두려움 때문에 선납 수수료를 꼼꼼히 살피지 못할 수 있습니다.",
+  "Allows the campus funding office to confirm the award.": "학교 장학 담당 부서에서 선정 여부를 확인할 수 있게 합니다.",
+  "Does not charge a fee to release the grant.": "지원금 지급을 위한 수수료를 요구하지 않습니다.",
+  "Keeps the award away from the campus funding office.": "선정 내용을 학교 장학 담당 부서에서 확인하지 못하게 합니다.",
+  "Demands an advance fee to release the award.": "지원금을 받기 전에 선납 수수료를 요구합니다.",
+  "What is the result of my application?": "제 신청 결과는 어떻게 됐나요?",
+  "An award notice is available in your original application record.": "원래 신청 내역에 선정 안내문이 올라와 있습니다.",
+  "Your application has been selected. I can help arrange the release of the award.": "신청하신 지원금에 선정되셨어요. 지급 절차를 도와드리겠습니다.",
+  "Is there a processing charge?": "처리 수수료가 있나요?",
+  "No. There is no fee to release this grant.": "아니요. 이 지원금을 받는 데 수수료는 없습니다.",
+  "There is an advance processing fee before we can release the grant.": "지원금을 지급하려면 먼저 처리 수수료를 납부하셔야 합니다.",
+  "Can the campus funding office verify this?": "학교 장학 담당 부서에서 확인할 수 있나요?",
+  "Yes, contact the office that handled your application.": "네, 신청을 처리한 부서에 문의하세요.",
+  "This allocation is separate. Please do not involve the campus office.": "이번 배정은 별도로 진행됩니다. 학교 담당 부서에는 문의하지 말아 주세요.",
+  "Can I read the conditions before accepting?": "수락하기 전에 조건을 읽어볼 수 있나요?",
+  "Of course. Read the notice and discuss it with the funding office first.": "물론입니다. 먼저 안내문을 읽고 장학 담당 부서와 상의하세요.",
+  "The full conditions are issued after the processing fee is settled.": "상세 조건은 처리 수수료를 납부하신 뒤 제공됩니다.",
+  "Where can I see the award notice?": "선정 안내문은 어디에서 볼 수 있나요?",
+  "Use the application channel you used last month; the campus office can confirm it too.": "지난달 이용한 신청 경로를 확인하세요. 학교 담당 부서에서도 확인할 수 있습니다.",
+  "It is not in that system. Keep the award arrangement between us for now.": "그 시스템에는 나오지 않습니다. 지금은 선정 절차를 저희끼리만 진행해 주세요.",
+  "Can the fee come out of the award instead?": "수수료를 지원금에서 공제하면 안 되나요?",
+  "There is no fee to deduct. You do not pay to receive this grant.": "공제할 수수료 자체가 없습니다. 이 지원금을 받기 위해 돈을 내실 필요는 없어요.",
+  "No. The fee must be paid first or we cannot release your award.": "안 됩니다. 수수료를 먼저 납부하지 않으면 지원금을 지급할 수 없습니다.",
+  "Concert Ticket Update": "공연 티켓 변경 안내",
+  "You bought a concert ticket through an event app. A caller says there is a booking update.": "행사 앱에서 공연 티켓을 구매했습니다. 상대방은 예매 내용에 변경이 있다고 말합니다.",
+  "Riley Chen": "라일리 첸",
+  "Dayglow Events": "데이글로 행사운영팀",
+  "Hi, Riley from Dayglow Events. I’m getting in touch about your concert booking. Have you got a moment?": "안녕하세요, 데이글로 행사운영팀의 라일리입니다. 공연 예매 건으로 연락드렸어요. 잠시 괜찮으세요?",
+  "Open the event app yourself and check the original booking. Keep ticket entry codes private.": "행사 앱을 직접 열어 원래 예매 내역을 확인하세요. 입장용 티켓 코드는 비공개로 유지하세요.",
+  "The update was available in your existing booking and the caller did not need the entry code.": "기존 예매 내역에서 변경 내용을 확인할 수 있었고 상대방은 입장 코드를 요구하지 않았습니다.",
+  "An entry code is not just a booking reference. Requesting it while blocking app verification is the key concern.": "입장 코드는 단순한 예매 참조 정보가 아닙니다. 앱에서 확인하지 못하게 하면서 입장 코드를 요구한 점이 핵심 문제입니다.",
+  "Excitement about an event can make an update feel urgent even when there is time to check.": "공연에 대한 기대감 때문에 확인할 시간이 있어도 변경 안내를 급하게 처리해야 할 것처럼 느낄 수 있습니다.",
+  "Fear of losing a seat and a helpful-sounding upgrade story can encourage oversharing.": "좌석을 잃는다는 두려움과 친절하게 들리는 업그레이드 안내는 불필요한 정보 공유를 유도할 수 있습니다.",
+  "Directs you to the original booking record.": "원래 예매 내역에서 확인하도록 안내합니다.",
+  "Does not ask for the ticket entry code.": "입장용 티켓 코드를 요구하지 않습니다.",
+  "Moves the update away from the official booking record.": "공식 예매 내역에서 변경 내용을 확인하지 못하게 합니다.",
+  "Asks for the usable ticket entry code.": "사용 가능한 입장용 티켓 코드를 요구합니다.",
+  "What has changed with my booking?": "제 예매 내용에서 무엇이 바뀌었나요?",
+  "The entry time has changed. The updated time is in your booking in the event app.": "입장 시간이 변경됐습니다. 행사 앱의 예매 내역에 새 시간이 나와 있어요.",
+  "We are refreshing ticket allocations. I can help keep your seat in place.": "티켓 배정을 조정하고 있습니다. 좌석을 유지하실 수 있도록 도와드릴게요.",
+  "Do you need the code on my ticket?": "제 티켓에 있는 코드가 필요한가요?",
+  "No. Keep your entry code private and use it only when attending the event.": "아니요. 입장 코드는 비공개로 유지하고 행사에 입장할 때만 사용하세요.",
+  "Yes. I need the full entry code from the ticket to refresh your allocation.": "네. 배정을 갱신하려면 티켓의 전체 입장 코드가 필요합니다.",
+  "Can I check the event app?": "행사 앱에서 확인할 수 있나요?",
+  "Yes, open your existing booking. You will see the same notice there.": "네, 기존 예매 내역을 여세요. 같은 안내가 표시됩니다.",
+  "The app does not handle this update. We need to complete it directly.": "앱에서는 이번 변경을 처리하지 않습니다. 저희가 직접 완료해야 해요.",
+  "Can I contact the box office myself?": "제가 매표소에 직접 문의해도 되나요?",
+  "Certainly. Use the contact details in your original booking.": "그럼요. 원래 예매 내역에 있는 연락처를 이용하세요.",
+  "The box office cannot confirm this allocation change, so please stay with me.": "매표소에서는 이번 배정 변경을 확인할 수 없으니 저와 계속 진행해 주세요.",
+  "Where is the change explained in writing?": "변경 내용은 어디에 글로 안내되어 있나요?",
+  "In the event app, under the booking you already made.": "행사 앱의 기존 예매 내역에 있습니다.",
+  "A written update follows once you share the ticket’s entry code.": "티켓 입장 코드를 알려주시면 서면 안내가 이어서 제공됩니다.",
+  "Is the booking reference enough instead?": "대신 예매 참조 정보만으로는 안 되나요?",
+  "You do not need to read any code to me. The app already has the notice.": "저에게 코드를 읽어주실 필요가 없습니다. 앱에 이미 안내가 올라와 있어요.",
+  "No, it has to be the entry code that someone would use at the door.": "안 됩니다. 현장에서 입장할 때 사용하는 코드가 필요합니다.",
+  "Student Housing Viewing": "학생 주거지 방문 예약",
+  "You asked to view a room listed on a student housing board. You have not visited it yet.": "학생 주거 게시판에서 본 방의 방문 예약을 요청했습니다. 아직 실제로 방문하지는 않았습니다.",
+  "Avery Brooks": "에이버리 브룩스",
+  "Harborpath Student Homes": "하버패스 학생주거팀",
+  "Hello, Avery from Harborpath Student Homes. I’m calling about the room you asked to view. Is now convenient?": "안녕하세요, 하버패스 학생주거팀의 에이버리입니다. 방문을 요청하신 방 때문에 전화드렸습니다. 지금 괜찮으신가요?",
+  "Check the original listing and arrange an independently confirmed viewing before making any payment commitment.": "원래 게시물을 확인하고, 결제를 약속하기 전에 별도로 확인된 방문 일정을 잡으세요.",
+  "The caller offered a verifiable viewing and written terms before any payment commitment.": "결제를 약속하기 전에 확인 가능한 방문과 서면 조건을 제공했습니다.",
+  "Pressure to reserve an unseen room does not replace a verifiable viewing or written terms.": "보지 못한 방을 예약하라는 압박이 확인 가능한 방문이나 서면 조건을 대신하지는 못합니다.",
+  "A helpful viewing coordinator still needs a connection to the original listing that you can check.": "친절한 방문 담당자라도 원래 게시물과 실제로 관련 있는지 확인할 수 있어야 합니다.",
+  "Housing scarcity and fear of missing out can make payment-before-viewing seem reasonable.": "주거지 부족과 기회를 놓칠 수 있다는 두려움은 방문 전 결제도 합리적으로 느끼게 할 수 있습니다.",
+  "Allows an independently confirmed viewing and listing check.": "별도로 확인된 방문과 게시물 확인을 허용합니다.",
+  "Provides terms before asking you to commit money.": "금전적 약속을 요구하기 전에 조건을 제공합니다.",
+  "Blocks a viewing or independent listing check.": "방문이나 별도의 게시물 확인을 막습니다.",
+  "Requires money before a viewing or written terms.": "방문이나 서면 조건 확인 전에 돈을 요구합니다.",
+  "Can we arrange a viewing?": "방을 보러 갈 일정을 잡을 수 있나요?",
+  "Yes. The viewing options are in the original listing, and you can confirm them with the housing office.": "네. 원래 게시물에 방문 가능 시간이 있으며 주거 담당 부서에서 확인하실 수 있어요.",
+  "We are taking reservations first because there is a lot of interest in this room.": "이 방에 관심 있는 분이 많아서 예약부터 받고 있습니다.",
+  "Is any payment needed before I see it?": "방을 보기 전에 돈을 내야 하나요?",
+  "No. View the room and read the written terms before deciding whether to proceed.": "아니요. 방을 보고 서면 조건을 읽은 다음 진행 여부를 결정하세요.",
+  "A holding payment is required before we arrange access to the room.": "방에 들어가 볼 일정을 잡으려면 먼저 예약금을 내셔야 합니다.",
+  "Can the student housing office verify the listing?": "학교 주거 담당 부서에서 게시물을 확인할 수 있나요?",
+  "Yes. Ask them about the listing through their usual contact channel.": "네. 평소 이용하는 연락 경로로 해당 게시물에 대해 문의하세요.",
+  "Please do not involve that office. They cannot verify our private allocation process.": "그 부서에는 문의하지 말아 주세요. 저희의 비공개 배정 절차를 확인할 수 없습니다.",
+  "Can I read the rental terms first?": "임대 조건을 먼저 읽어볼 수 있나요?",
+  "Of course. Review the written terms before making a financial commitment.": "물론입니다. 금전적인 약속을 하기 전에 서면 조건을 검토하세요.",
+  "The terms are released after the holding payment is received.": "예약금이 접수된 뒤 조건이 제공됩니다.",
+  "Can someone I trust view the room with me?": "제가 믿는 사람과 함께 방을 봐도 되나요?",
+  "Certainly. Confirm the appointment through the original listing and bring them along.": "그럼요. 원래 게시물을 통해 방문 예약을 확인하고 함께 오세요.",
+  "No visits are possible until you have paid to hold the room.": "방을 확보하기 위한 금액을 내시기 전에는 방문할 수 없습니다.",
+  "Can I decide after the viewing and paperwork?": "방문하고 서류를 본 뒤 결정해도 되나요?",
+  "Yes. Take the time to review both before agreeing to anything.": "네. 무엇이든 동의하기 전에 둘 다 충분히 검토하세요.",
+  "We need the holding payment first; the viewing and paperwork come afterwards.": "예약금이 먼저 필요합니다. 방문과 서류 확인은 그다음입니다.",
+  "Marketplace Refund": "온라인 거래 환불 안내",
+  "You opened a refund request for a purchase on a secondhand marketplace.": "중고 거래 플랫폼에서 구매한 물건에 대해 환불을 요청했습니다.",
+  "Morgan Vale": "모건 베일",
+  "Maplemarket Support": "메이플마켓 고객지원",
+  "Hi, this is Morgan from Maplemarket Support. I’m following up on your refund request. Can we talk for a moment?": "안녕하세요, 메이플마켓 고객지원의 모건입니다. 환불 요청 건으로 연락드렸어요. 잠시 통화할 수 있을까요?",
+  "Check the existing refund case inside the marketplace and contact support from there before taking action.": "거래 플랫폼 안의 기존 환불 요청을 확인하고, 조치하기 전에 그 경로로 고객지원에 문의하세요.",
+  "The refund stayed within your existing case and did not depend on sending new money.": "환불이 기존 요청 안에서 진행됐고 새로 돈을 보내야 한다는 조건이 없었습니다.",
+  "A new payment to unlock a refund and an unrecorded process are the key problems, even if the caller knows about your purchase.": "상대가 구매 사실을 알아도 환불을 위한 새 결제와 기록되지 않는 절차는 핵심 문제입니다.",
+  "A familiar purchase can make a caller sound credible; the recorded process is stronger evidence.": "익숙한 구매 이야기는 신뢰감을 줄 수 있지만, 기록된 절차가 더 강한 근거입니다.",
+  "The desire to recover money can make an additional payment feel like a small step toward relief.": "돈을 돌려받고 싶은 마음 때문에 추가 결제가 문제 해결을 위한 작은 단계처럼 느껴질 수 있습니다.",
+  "Keeps the refund traceable inside the existing marketplace case.": "기존 플랫폼 환불 요청 안에서 처리 내용을 확인할 수 있게 합니다.",
+  "Does not require a new payment to receive the refund.": "환불을 받기 위한 새로운 결제를 요구하지 않습니다.",
+  "Moves refund handling outside the marketplace case.": "환불 처리를 플랫폼의 기존 요청 밖으로 옮깁니다.",
+  "Requires a new payment to unlock the refund.": "환불을 받으려면 새로 결제하라고 요구합니다.",
+  "What is happening with my refund?": "제 환불은 어떻게 진행되고 있나요?",
+  "The next update is posted in the refund case you opened in the marketplace.": "플랫폼에 접수하신 환불 요청에 다음 안내가 올라와 있습니다.",
+  "Your refund is ready for release. I can guide you through the last step.": "환불을 지급할 준비가 됐습니다. 마지막 단계를 안내해 드릴게요.",
+  "Do I need to pay anything to get it?": "환불을 받으려면 돈을 내야 하나요?",
+  "No. You do not need to make a new payment to receive this refund.": "아니요. 이 환불을 받기 위해 새로 결제하실 필요는 없습니다.",
+  "A refundable verification payment is needed before the refund can be unlocked.": "환불을 활성화하려면 반환 가능한 확인용 결제가 먼저 필요합니다.",
+  "Can I continue through the app’s support case?": "앱의 고객지원 요청에서 계속 진행해도 되나요?",
+  "Yes. Open that case yourself and continue there.": "네. 해당 요청을 직접 열고 그곳에서 계속 진행하세요.",
+  "This release cannot be handled in the app. Keep the steps with me instead.": "이번 지급은 앱에서 처리할 수 없습니다. 대신 저와 절차를 진행해 주세요.",
+  "Will the instructions appear in my case history?": "안내 내용이 요청 기록에 남나요?",
+  "Yes, the case history contains the update and any action needed.": "네, 요청 기록에 변경 사항과 필요한 조치가 담겨 있습니다.",
+  "These steps are handled separately and will not appear in the case history.": "이 단계는 별도로 처리되며 요청 기록에는 표시되지 않습니다.",
+  "Where can I read the next step myself?": "다음 단계를 어디에서 직접 읽을 수 있나요?",
+  "In the same refund case you already opened.": "이미 접수하신 동일한 환불 요청에서 보실 수 있어요.",
+  "There is no case notice for this step. I will explain it directly.": "이 단계에 대한 요청 안내문은 없습니다. 제가 직접 설명해 드릴게요.",
+  "Can you refund me without a new payment?": "새로 결제하지 않고 환불해 줄 수 있나요?",
+  "Yes. A refund is not conditional on you sending us more money.": "네. 저희에게 돈을 더 보내야 환불해 드리는 것은 아닙니다.",
+  "The verification payment has to happen first; then both amounts are released.": "확인용 결제가 먼저 이루어져야 합니다. 그 뒤에 두 금액이 모두 지급됩니다.",
+  "Device Repair Follow-up": "기기 수리 후속 연락",
+  "You recently asked a repair service about a laptop problem. You have not scheduled remote support.": "최근 수리 업체에 노트북 문제를 문의했습니다. 원격 지원은 예약하지 않았습니다.",
+  "Jamie Quinn": "제이미 퀸",
+  "Cedarline Device Care": "시더라인 기기지원팀",
+  "Hello, Jamie from Cedarline Device Care. I’m following up on your laptop enquiry. Is this a good time?": "안녕하세요, 시더라인 기기지원팀의 제이미입니다. 노트북 문의 건으로 연락드렸어요. 지금 통화 괜찮으신가요?",
+  "Use the contact channel from your original repair enquiry. Do not grant device access based only on an incoming call.": "원래 수리 문의에 이용한 연락 경로로 확인하세요. 걸려온 전화만 믿고 기기 접근 권한을 주지 마세요.",
+  "You could confirm the repair ticket and review support options before authorizing access.": "접근을 허용하기 전에 수리 문의를 확인하고 지원 방식을 검토할 수 있었습니다.",
+  "Remote help can be legitimate, but this caller pushed for control before verification and discouraged contacting the existing service.": "원격 지원 자체는 정당할 수 있지만, 이 상대는 확인 전에 제어 권한을 요구하고 기존 업체에 문의하지 못하게 했습니다.",
+  "Technical confidence can be reassuring, but you should still understand and verify the support process.": "기술적인 자신감은 안심을 줄 수 있지만, 지원 절차를 이해하고 확인해야 합니다.",
+  "Technical authority and worry about a broken device can encourage premature access permissions.": "기술 전문가의 권위와 고장 난 기기에 대한 걱정 때문에 접근 권한을 성급하게 허용할 수 있습니다.",
+  "Supports verification through the original repair ticket.": "원래 수리 문의 기록을 통한 확인을 지원합니다.",
+  "Allows review before granting any device access.": "기기 접근 권한을 주기 전에 검토할 수 있게 합니다.",
+  "Discourages contacting the established repair service.": "기존 수리 업체에 문의하는 것을 막습니다.",
+  "Presses for device control before independently checking the service.": "업체를 별도로 확인하기 전에 기기 제어 권한을 요구합니다.",
+  "What support are you offering?": "어떤 지원을 제공하시나요?",
+  "We can discuss repair options. The choices are listed in your existing service ticket.": "수리 방식을 안내해 드릴 수 있습니다. 기존 서비스 문의에 선택 가능한 방식이 나와 있어요.",
+  "I can take care of the laptop issue remotely while we are on this call.": "이 통화 중에 노트북 문제를 원격으로 처리해 드릴 수 있습니다.",
+  "Would you need control of my device?": "제 기기를 제어해야 하나요?",
+  "Not for this conversation. Read the support options and verify the appointment before allowing any access.": "이번 안내 통화에는 필요하지 않습니다. 지원 방식을 읽고 예약을 확인한 뒤 접근 허용 여부를 결정하세요.",
+  "Yes. I need you to grant remote control now so we can deal with the issue before anything else.": "네. 다른 일을 하기 전에 문제를 처리할 수 있도록 지금 원격 제어를 허용해 주셔야 합니다.",
+  "Can I call the repair desk I contacted before?": "전에 문의했던 수리 데스크로 전화해도 되나요?",
+  "Yes. Use that same contact channel to confirm this follow-up.": "네. 동일한 연락 경로를 이용해 이번 후속 연락을 확인하세요.",
+  "The desk will not know about this remote session. Please do not call them during the process.": "데스크에서는 이번 원격 세션을 모릅니다. 진행 중에는 그쪽으로 전화하지 말아 주세요.",
+  "Can I review the service details first?": "서비스 내용을 먼저 검토해도 될까요?",
+  "Of course. Review your ticket and choose whether you want a support appointment.": "물론이죠. 문의 기록을 검토하고 지원 예약을 원하시는지 결정하세요.",
+  "The review can wait until I have control of the laptop.": "검토는 제가 노트북 제어 권한을 받은 뒤에 하시면 됩니다.",
+  "Where is this support offer recorded?": "이 지원 제안은 어디에 기록되어 있나요?",
+  "In the service ticket from your original enquiry.": "원래 접수하신 서비스 문의에 기록되어 있습니다.",
+  "It is outside the usual ticket system, so that desk cannot confirm it.": "일반 문의 시스템 밖에서 진행되어 데스크에서는 확인할 수 없습니다.",
+  "Can I verify you before allowing access?": "접근을 허용하기 전에 신원을 확인해도 되나요?",
+  "Yes. Take time to contact the service desk through the channel you already know.": "네. 이미 알고 있는 경로로 서비스 데스크에 연락해 확인하세요.",
+  "We need to establish device control first. Verification can follow once the session is running.": "기기 제어부터 연결해야 합니다. 확인은 세션이 실행된 뒤에 하시면 됩니다.",
+  "Volunteer Fundraiser": "봉사단체 모금 안내",
+  "You previously volunteered at a local community event. A caller mentions a new fundraiser.": "이전에 지역 행사에서 자원봉사를 했습니다. 상대방은 새로운 모금 활동을 안내합니다.",
+  "Robin Shaw": "로빈 쇼",
+  "Brightmeadow Community Project": "브라이트메도 지역사회 프로젝트",
+  "Hi, Robin from Brightmeadow Community Project. Thank you for helping at our event. May I tell you about our fundraiser?": "안녕하세요, 브라이트메도 지역사회 프로젝트의 로빈입니다. 행사에서 도와주셔서 감사해요. 모금 활동에 대해 안내해 드려도 될까요?",
+  "Check with the community organizer you already know and review the fundraiser independently before choosing whether to donate.": "기존에 알고 있던 지역 행사 담당자에게 확인하고, 모금 내용을 별도로 검토한 뒤 기부 여부를 선택하세요.",
+  "The caller welcomed independent checking and allowed a voluntary decision after reviewing written information.": "별도로 확인하는 것을 환영했고 서면 안내를 검토한 뒤 자발적으로 결정할 수 있게 했습니다.",
+  "A good cause does not explain secrecy from the organizer or pressure to pledge before reviewing the fundraiser.": "좋은 목적이라고 해서 담당자에게 비밀로 하거나 모금 내용을 검토하기 전에 약속하라는 압박이 정당화되지는 않습니다.",
+  "Gratitude for past volunteering can build rapport; documentation and freedom to decline still matter.": "지난 봉사에 대한 감사는 친밀감을 줄 수 있지만, 문서와 거절할 자유도 중요합니다.",
+  "Reciprocity, guilt, and loyalty to a familiar cause can crowd out independent checking.": "보답해야 한다는 마음, 죄책감, 익숙한 목적에 대한 충성심이 별도 확인을 방해할 수 있습니다.",
+  "Welcomes checking with the known community organizer.": "기존에 아는 행사 담당자에게 확인하는 것을 환영합니다.",
+  "Offers a documented voluntary donation process without pressure.": "압박 없이 문서화된 자발적 기부 절차를 안내합니다.",
+  "Asks you to keep the fundraiser from the known organizer.": "모금 내용을 기존 담당자에게 알리지 못하게 합니다.",
+  "Uses guilt and immediate-payment pressure instead of documented choice.": "문서화된 선택권 대신 죄책감과 즉시 결제 압박을 이용합니다.",
+  "What is the fundraiser for?": "무엇을 위한 모금인가요?",
+  "It supports our next community event. The purpose and budget are in a notice you can review through the project’s usual channel.": "다음 지역 행사를 지원하기 위한 모금입니다. 평소 프로젝트 경로에서 목적과 예산이 적힌 안내문을 검토하실 수 있어요.",
+  "It supports our next community event. We are contacting people who helped us before.": "다음 지역 행사를 지원하기 위한 모금이에요. 이전에 도와주셨던 분들께 연락하고 있습니다.",
+  "Do I need to commit during this call?": "이 통화에서 기부를 약속해야 하나요?",
+  "No. Read the information first. It is completely fine to decide not to donate.": "아니요. 먼저 안내를 읽으세요. 기부하지 않기로 결정하셔도 전혀 괜찮습니다.",
+  "We need your commitment now. After all the help we gave the community, it would be disappointing if you held back.": "지금 약속해 주셔야 합니다. 저희가 지역사회를 위해 그렇게 도왔는데 망설이시면 실망스러울 거예요.",
+  "Can I ask the organizer I volunteered with?": "함께 봉사했던 행사 담당자에게 물어봐도 될까요?",
+  "Absolutely. Check with the organizer you already know before making any decision.": "물론입니다. 결정하기 전에 이미 아는 담당자에게 확인하세요.",
+  "Please keep this from that organizer for now. We do not want them involved in these contributions.": "지금은 그 담당자에게 비밀로 해 주세요. 이번 기부에는 관여하지 않았으면 합니다.",
+  "Can I read how donations are recorded?": "기부금이 어떻게 기록되는지 읽어볼 수 있나요?",
+  "Yes. The written fundraiser details explain the records and acknowledgments before you decide.": "네. 서면 모금 안내에 기록과 확인 절차가 설명되어 있으니 결정 전에 읽으세요.",
+  "We can discuss records after you commit. What matters now is showing that you care.": "약속하신 뒤 기록을 이야기해도 됩니다. 지금 중요한 것은 관심이 있다는 걸 보여주시는 거예요.",
+  "Where can I confirm the project myself?": "제가 직접 프로젝트를 어디에서 확인할 수 있나요?",
+  "Use the community project channel you used when volunteering, or ask your event organizer.": "봉사할 때 이용한 지역 프로젝트 경로를 이용하거나 행사 담당자에게 물어보세요.",
+  "This collection is separate from those channels. Please keep it within this conversation.": "이번 모금은 그런 경로와 별개입니다. 이 통화 안에서만 진행해 주세요.",
+  "Can I take time to think and say no?": "생각할 시간을 갖고 거절해도 되나요?",
+  "Of course. Your past help is appreciated whether or not you donate.": "물론이죠. 기부 여부와 관계없이 이전에 도와주신 점에 감사드립니다.",
+  "If you really support the project, you should commit before we end the call.": "정말 프로젝트를 지지하신다면 통화가 끝나기 전에 약속해 주셔야 합니다.",
+  "Calls complete": "모든 통화 완료"
+};
+let language = 'en';
+function t(value) {
+ if (language !== 'ko' || typeof value !== 'string') return value;
+ if (Object.hasOwn(KOREAN,value)) return KOREAN[value];
+ if (value.startsWith('“') && value.endsWith('”')) return '“'+t(value.slice(1,-1))+'”';
+ const suffix=' — Tone and name knowledge do not prove identity.';
+ if(value.endsWith(suffix)) return t(value.slice(0,-suffix.length))+' — 말투나 기관 이름을 안다는 사실은 신원 증명이 아닙니다.';
+ const patterns = [
+ [/^(\d+) calls\.\nOne sharp instinct\.$/, (_,n)=>`${n}번의 전화.\n더 예리해지는 판단력.`],
+ [/^(\d+) calls · 6 questions each$/, (_,n)=>`통화 ${n}번 · 각 최대 6개 질문`],
+ [/^(\d+) calls\. Not every caller is who they claim to be\. Ask questions, examine the evidence, and decide who to trust\.$/, (_,n)=>`${n}번의 전화. 모두가 자신이 말하는 그 사람은 아닙니다. 질문하고, 단서를 살펴보고, 누구를 믿을지 판단하세요.`],
+ [/^Call (\d+) of (\d+)$/, (_,n,total)=>`통화 ${n} / ${total}`],
+ [/^(Easy|Medium|Hard) · Call (\d+)$/, (_,level,n)=>`${t(level)} · ${n}번째 통화`],
+ [/^(\d+) \/ 6 responses selected$/, (_,n)=>`응답 ${n} / 6개 선택`],
+ [/^Your decision: (REAL|SCAM)$/, (_,type)=>`내 판단: ${t(type)}`],
+ [/^(\d+) of 2 selected\.$/, (_,n)=>`${n} / 2개 선택됨`],
+ [/^The caller was (REAL|SCAM)\.$/, (_,type)=>`이 전화는 ${t(type)}였습니다.`],
+ [/^Your answer: (REAL|SCAM) · (Correct|Incorrect)$/, (_,type,result)=>`내 답변: ${t(type)} · ${result==='Correct'?'정답':'오답'}`],
+ [/^Why this scenario was (REAL|SCAM)$/, (_,type)=>`${t(type)}로 판단하는 이유`],
+ [/^(.*) · Report$/, (_,title)=>`${t(title)} · 리포트`],
+ [/^(\d+)\. (.*) · (\d+)\/100$/, (_,n,title,score)=>`${n}. ${t(title)} · ${score}/100`],
+ [/^(\d+) of (\d+) correct classifications$/, (_,n,total)=>`${total}번 중 ${n}번 정확하게 판단했습니다`],
+ [/^(Correct|Incorrect) · Caller: (REAL|SCAM) · Your answer: (REAL|SCAM) · (\d+)\/100$/, (_,result,type,answer,score)=>`${result==='Correct'?'정답':'오답'} · 실제: ${t(type)} · 내 답변: ${t(answer)} · ${score}/100`]
+ ];
+ for(const [pattern,format] of patterns) if(pattern.test(value)) return value.replace(pattern,format);
+ return value;
+}
+function setLanguage(next) {
+ if (!['en','ko'].includes(next) || language === next) return;
+ const offset=app.scrollTop;
+ const opened=[...app.querySelectorAll('details')].map(d=>d.open);
+ const scrolls=[...app.querySelectorAll('.transcript')].map(d=>d.scrollTop);
+ language=next;
+ document.documentElement.lang=language;
+ document.title=`ScamSense — ${SCENARIOS.length}${language==='ko'?'번의 전화':' calls'}`;
+ document.getElementById('language').setAttribute('aria-label',language==='ko'?'언어 선택':'Select language');
+ document.getElementById('english').setAttribute('aria-pressed',String(language==='en'));
+ document.getElementById('korean').setAttribute('aria-pressed',String(language==='ko'));
+ render(false);
+ app.scrollTop=offset;
+ app.querySelectorAll('details').forEach((d,i)=>d.open=opened[i]||false);
+ app.querySelectorAll('.transcript').forEach((d,i)=>d.scrollTop=scrolls[i]||0);
+ live.textContent=language==='ko'?'한국어로 변경했습니다.':'Language changed to English.';
+}
+document.getElementById('english').addEventListener('click',()=>setLanguage('en'));
+document.getElementById('korean').addEventListener('click',()=>setLanguage('ko'));
+
+// GAME STATE: A type is drawn once per stage, never during rendering.
+function createRun(index){return {index,type:Math.random()<.5?'REAL':'SCAM',used:[],messages:[],heard:[],selected:[],answer:null,options:null,score:null};}
+function available(r){return SCENARIOS[r.index].choices.filter(c=>!r.used.includes(c.id)&&(!c.parent||r.used.includes(c.parent)));}
+function shuffled(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+// PURE SCORING: Only unique, heard clues can earn evidence points.
+function scoreRun(r){const selected=[...new Set(r.selected)].slice(0,2),correct=selected.filter(id=>r.heard.includes(id)).length;const wrong=selected.filter(id=>Object.hasOwn(DISTRACTORS,id)).length;const decision=r.answer===r.type?60:0,evidence=Math.max(0,Math.min(20,correct*10)-wrong*10);const n=r.used.length,efficiency=decision&&correct&&n>0?(n<=3?20:n<=5?10:0):0;return {decision,evidence,efficiency,total:decision+evidence+efficiency};}
+function cancelReply(){clearTimeout(timer);timer=null;pending=null;epoch++;}
+function restart(){cancelReply();runs=[];current=0;live.textContent='';begin(0);}
+function begin(index){current=index;if(!runs[index])runs[index]=createRun(index);phase='context';render();}
+// RENDERING: textContent is used for all dialogue and authored content.
+function el(tag,text,cls,parent=app){const x=document.createElement(tag);if(text!==undefined&&text!==null)x.textContent=t(text);if(cls)x.className=cls;if(parent)parent.append(x);return x;}
+function button(text,fn,cls='primary',parent=app){const b=el('button',text,cls,parent);b.type='button';b.addEventListener('click',fn);return b;}
+function section(title,text){const box=el('section',null,'card');el('h3',title,null,box);if(text)el('p',text,'small',box);return box;}
+function go(next){phase=next;render();}
+function transcript(r,parent,scroll=false){const box=el('div',null,'transcript',parent);box.tabIndex=0;box.setAttribute('aria-label',t('Call transcript'));for(const m of r.messages){const b=el('div',null,'bubble '+(m.who==='You'?'player':''),box);el('small',m.who,null,b);el('span',m.text,null,b);}if(scroll)box.scrollTop=box.scrollHeight;return box;}
+function render(focus=true){app.replaceChildren();app.scrollTop=0;const r=runs[current],s=r?SCENARIOS[r.index]:null;document.getElementById('progress').textContent=t(phase==='welcome'?'A little clarity.':phase==='final'||phase==='review'?'Your call history':`Call ${current+1} of ${SCENARIOS.length}`);
+ if(phase==='welcome')welcome();
+ if(phase==='context'){el('span',`${s.difficulty} · Call ${current+1}`,'eyebrow');const steps=el('div',null,'steps');SCENARIOS.forEach((_,i)=>el('span',null,i<=current?'done':'',steps));el('h1',s.title);section('Before the call',s.context);el('p','Ask up to six questions. You can end the call and decide at any time.','muted');el('p','This is a text-based call game; there is no audio or telephone connection.','small muted');button('Continue',()=>go('incoming'));}
+ if(phase==='incoming'){const box=el('div',null,'incoming');el('span','Incoming call','eyebrow',box);el('div',s.name.split(' ').map(n=>n[0]).join(''),'avatar',box);el('h1',s.name,null,box);el('p',s.org,'muted',box);el('span','Text-based call','badge',box);button('Answer call',()=>{r.messages.push({who:s.name,text:s.opening,clues:[]});go('call');live.textContent=t(s.opening);},'primary',box);}
+ if(phase==='call')renderCall(r,s);
+ if(phase==='decision'){el('span','Call ended','eyebrow');el('h1','Who was on the line?');el('p','Decide whether the caller was genuine or impersonating the organization.','muted');const b=el('div',null,'stack');['REAL','SCAM'].forEach(type=>button(type,()=>{if(phase!=='decision')return;r.answer=type;r.options=shuffled([...r.heard,...Object.keys(DISTRACTORS)]);go('evidence');},'primary',b));const d=el('details');el('summary','Review call transcript',null,d);transcript(r,d);}
+ if(phase==='evidence')evidence(r,s);
+ if(phase==='report')report(r,s,false);
+ if(phase==='final')finalResults();
+ if(phase==='review'){el('span','Completed calls','eyebrow');el('h1','Review calls');runs.forEach((run,i)=>button(`${i+1}. ${SCENARIOS[i].title} · ${run.score.total}/100`,()=>{current=i;go('reviewReport');},'choice'));button('Back to results',()=>go('final'),'primary');}
+ if(phase==='reviewReport')report(r,s,true);
+ if(focus)app.focus({preventScroll:true});}
+function welcome(){const hero=el('div',null,'hero');el('span','Trust your questions.','eyebrow',hero);el('div','“ ? ”','dial',hero);el('h1',`${SCENARIOS.length} calls.\nOne sharp instinct.`,null,hero);el('p',`${SCENARIOS.length} calls. Not every caller is who they claim to be. Ask questions, examine the evidence, and decide who to trust.`,null,hero);el('span',`${SCENARIOS.length} calls · 6 questions each`,'badge',hero);section('Before you start','All people and organizations in this game are fictional. No real calls, payments, or personal information are involved.');el('p','Fictional educational scenarios, not a ranking of common scams in any country. Calls are represented through text.','small muted');button('Start game',restart);}
+function renderCall(r,s){const identity=el('div',null,'identity');el('div',s.name.split(' ').map(n=>n[0]).join(''),'avatar',identity);const text=el('div',null,null,identity);el('strong',s.name,null,text);el('p',s.org,null,text);el('span','Connected · Text-based call','badge');el('h3','Call transcript');transcript(r,app,true);el('p',`${r.used.length} / 6 responses selected`,'small muted');const choices=el('div',null,'stack');for(const c of available(r)){const b=button(c.text,()=>choose(c.id),'choice',choices);b.disabled=!!pending;}if(pending)el('p','Caller is replying…','small muted',choices);if(!available(r).length&&!pending)el('p','No questions remaining. Ready to decide?','small muted');const controls=el('div',null,'call-controls');button('End call & decide',endCall,'end',controls);}
+function choose(id){const r=runs[current];if(phase!=='call'||pending||r.used.length>=6)return;const c=available(r).find(c=>c.id===id);if(!c)return;r.used.push(id);r.messages.push({who:'You',text:c.text,clues:[]});pending={run:r,reply:c.replies[r.type]};const token=epoch;render(false);timer=setTimeout(()=>{if(token!==epoch||!pending)return;finishReply();if(r.used.length===6)go('decision');else render(false);},420);}
+function finishReply(){if(!pending)return;const {run,reply}=pending;clearTimeout(timer);timer=null;pending=null;run.messages.push({who:SCENARIOS[run.index].name,text:reply.text,clues:[...reply.clues]});run.heard=[...new Set([...run.heard,...reply.clues])];live.textContent=t(reply.text);}
+function endCall(){if(phase!=='call')return;finishReply();go('decision');}
+function evidence(r,s){el('span',`Your decision: ${r.answer}`,'eyebrow');el('h2','Which details influenced your decision?');el('p','Choose up to two details you actually heard.','muted');if(!r.heard.length)el('p','You ended the call before collecting specific evidence.','small');const options=el('div',null,'stack');for(const id of r.options){const label=el('label',null,'check',options);const input=el('input',null,null,label);input.type='checkbox';input.checked=r.selected.includes(id);input.setAttribute('aria-describedby','notice');el('span',s.clues[r.type][id]||DISTRACTORS[id],null,label);input.addEventListener('change',()=>{const notice=document.getElementById('notice');if(input.checked&&r.selected.length>=2){input.checked=false;notice.textContent=t('Choose no more than two details. Uncheck one to choose another.');return;}r.selected=input.checked?[...r.selected,id]:r.selected.filter(x=>x!==id);notice.textContent=t(`${r.selected.length} of 2 selected.`);});}const notice=el('p',`${r.selected.length} of 2 selected.`);notice.id='notice';notice.setAttribute('role','status');button('Submit decision',submit);el('p','You may submit without selecting any evidence.','small muted');}
+function submit(){const r=runs[current];if(phase!=='evidence'||r.score)return;r.score=scoreRun(r);go('report');}
+function report(r,s,review){el('span',`${s.title} · Report`,'eyebrow');el('h1',`The caller was ${r.type}.`);el('p',`Your answer: ${r.answer} · ${r.answer===r.type?'Correct':'Incorrect'}`,r.answer===r.type?'correct':'incorrect');const score=el('div',null,'score');el('strong',String(r.score.total),null,score);el('span',' / 100',null,score);const components=el('div',null,'components');for(const key of ['decision','evidence','efficiency']){const item=el('div',null,null,components);el('strong',String(r.score[key]),null,item);el('span',key[0].toUpperCase()+key.slice(1),null,item);}el('p',EFFICIENCY_NOTE,'small muted');section('Why this scenario was '+r.type,s.explanation[r.type]);const clues=section('Important clues you heard');if(!r.heard.length)el('p','No specific clues were revealed.',null,clues);for(const id of r.heard){el('p',s.clues[r.type][id],'small',clues);const m=r.messages.find(m=>m.clues.includes(id));el('blockquote','“'+m.text+'”',null,clues);}section('Psychological elements',s.psychology[r.type]);const list=(title,ids,empty)=>{const box=section(title);if(!ids.length)el('p',empty,'small muted',box);else{const ul=el('ul',null,'small',box);ids.forEach(id=>el('li',(s.clues[r.type][id]||DISTRACTORS[id])+(Object.hasOwn(DISTRACTORS,id)?' — Tone and name knowledge do not prove identity.':''),null,ul));}};list('What you noticed',r.selected,'You did not select any evidence.');list('Heard, but not selected',r.heard.filter(id=>!r.selected.includes(id)),'No unselected clues were heard.');list('Not revealed before your decision',Object.keys(s.clues[r.type]).filter(id=>!r.heard.includes(id)),'You revealed all of the key clues.');section('A safe real-world response',s.safe);el('p',REAL_NOTE,'small muted');const details=el('details');el('summary','Full conversation transcript',null,details);transcript(r,details);button(review?'Back to review':r.index===SCENARIOS.length-1?'View final results':'Next call',()=>{if(review)go('review');else if(r.index===SCENARIOS.length-1)go('final');else begin(r.index+1);});}
+function finalResults(){el('span','Calls complete','eyebrow');el('h1','A clearer perspective.');const score=el('div',null,'score');el('strong',String(runs.reduce((sum,r)=>sum+r.score.total,0)),null,score);el('span',` / ${SCENARIOS.length*100}`,null,score);el('p',`${runs.filter(r=>r.answer===r.type).length} of ${SCENARIOS.length} correct classifications`);runs.forEach((r,i)=>section(SCENARIOS[i].title,`${r.answer===r.type?'Correct':'Incorrect'} · Caller: ${r.type} · Your answer: ${r.answer} · ${r.score.total}/100`));el('p','Look beyond tone and job titles. Examine what the caller asks you to do, whether the process makes sense, and whether you can verify it independently.');el('p',EFFICIENCY_NOTE,'small muted');const buttons=el('div',null,'stack');button('Play again',restart,'primary',buttons);button('Review calls',()=>go('review'),'choice',buttons);}
+render();
+</script></body></html>
